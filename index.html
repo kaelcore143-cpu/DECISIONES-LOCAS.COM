@@ -5,35 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dilemas Virales | El juego de decisiones imposibles</title>
     <meta name="description" content="Juega Dilemas Virales: el juego adictivo de decisiones imposibles. Elige entre opciones absurdas y descubre qué piensa la gente.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- ESPACIO PARA ANUNCIO HEADER -->
-    <!-- <div class="ad-container ad-header">Espacio para anuncio</div> -->
+    <div class="scanlines"></div>
+    <div class="noise-overlay"></div>
+    <canvas id="particleCanvas"></canvas>
 
     <main class="game-container">
         <header class="game-header">
-            <h1>🔥 DILEMAS VIRALES</h1>
+            <div class="logo-wrap">
+                <span class="glitch-text" data-text="DILEMAS VIRALES">DILEMAS VIRALES</span>
+                <span class="logo-sub">¿Hasta dónde llegas?</span>
+            </div>
             <div class="stats">
-                <span id="streak">Racha: 0</span>
+                <span class="stat-pill">
+                    <span class="stat-icon">⚡</span>
+                    <span id="decisionCount">0</span>
+                </span>
+                <span class="stat-pill streak-pill">
+                    <span class="stat-icon">🔥</span>
+                    <span id="streak">0</span>
+                </span>
             </div>
         </header>
 
         <section class="game-area" id="gameArea">
             <!-- Pantalla de inicio -->
             <div class="start-screen" id="startScreen">
-                <h2>¿Estás listo para decisiones imposibles?</h2>
-                <p>Tienes 5 segundos para elegir. No hay respuestas correctas... solo consecuencias.</p>
-                <button class="btn-primary" id="startBtn">JUGAR AHORA</button>
+                <div class="start-badge">⚠️ ADVERTENCIA</div>
+                <h2 class="start-title">El <span class="highlight">90%</span> falla<br>estos dilemas</h2>
+                <p class="start-sub">¿Eres del montón<br>o completamente diferente?</p>
+                <div class="start-tags">
+                    <span>#caos</span><span>#psicología</span><span>#viral</span>
+                </div>
+                <button class="btn-primary" id="startBtn">
+                    <span class="btn-inner">DESCUBRE QUIÉN ERES →</span>
+                </button>
+                <p class="start-warning">⏱ 5 segundos por decisión. Sin escape.</p>
             </div>
 
-            <!-- Pantalla de juego -->
+            <!-- Pantalla de dilema -->
             <div class="dilemma-screen hidden" id="dilemmaScreen">
-                <div class="timer-container">
-                    <div class="timer-bar" id="timerBar"></div>
+                <div class="timer-wrap">
+                    <div class="timer-container">
+                        <div class="timer-bar" id="timerBar"></div>
+                    </div>
+                    <span class="timer-countdown" id="timerCountdown">5</span>
                 </div>
                 
                 <div class="dilemma-content">
+                    <div class="dilemma-number" id="dilemmaNum">DILEMA #1</div>
                     <h2 id="dilemmaQuestion" class="dilemma-question"></h2>
                 </div>
 
@@ -42,6 +66,7 @@
                         <span class="option-label">A</span>
                         <span class="option-text" id="textA"></span>
                     </button>
+                    <div class="vs-divider">VS</div>
                     <button class="option-btn" id="optionB" data-option="B">
                         <span class="option-label">B</span>
                         <span class="option-text" id="textB"></span>
@@ -49,20 +74,80 @@
                 </div>
             </div>
 
-            <!-- Pantalla de resultado -->
+            <!-- Pantalla de resultado normal -->
             <div class="result-screen hidden" id="resultScreen">
                 <div class="result-content">
+                    <div class="result-badge" id="resultBadge">MAYORÍA ELIGIÓ ESTO</div>
                     <div class="percentage-display" id="percentageDisplay"></div>
                     <p class="result-text" id="resultText"></p>
                     <p class="sarcastic-response" id="sarcasticResponse"></p>
+                    <p class="psychological-insight hidden" id="psychologicalInsight"></p>
+                    <p class="milestone-message hidden" id="milestoneMessage"></p>
                 </div>
-                <button class="btn-primary" id="nextBtn">SIGUIENTE DILEMA →</button>
+                <button class="btn-primary" id="nextBtn">
+                    <span class="btn-inner">SIGUIENTE DILEMA →</span>
+                </button>
+            </div>
+
+            <!-- Pantalla de resultado psicológico VIRAL -->
+            <div class="psych-result-screen hidden" id="psychResultScreen">
+                <div class="psych-header">
+                    <span class="psych-label">¡TU RESULTADO PSICOLÓGICO!</span>
+                </div>
+                <div class="psych-eres-text">ERES:</div>
+                <div class="psych-title-wrap">
+                    <span class="psych-emoji" id="psychEmoji">😈</span>
+                    <div class="psych-archetype-block">
+                        <div class="psych-archetype" id="psychArchetype">EL CAÓTICO</div>
+                        <div class="psych-archetype-sub" id="psychArchetypeSub">MAESTRO</div>
+                    </div>
+                </div>
+                
+                <div class="psych-bars-container">
+                    <div class="psych-bar-row">
+                        <span class="psych-bar-label">CAOS</span>
+                        <div class="psych-bar-track">
+                            <div class="psych-bar psych-bar-caos" id="barCaos" style="width:0%"></div>
+                        </div>
+                        <span class="psych-bar-pct" id="pctCaos">0%</span>
+                    </div>
+                    <div class="psych-bar-row">
+                        <span class="psych-bar-label">EGO</span>
+                        <div class="psych-bar-track">
+                            <div class="psych-bar psych-bar-ego" id="barEgo" style="width:0%"></div>
+                        </div>
+                        <span class="psych-bar-pct" id="pctEgo">0%</span>
+                    </div>
+                    <div class="psych-bar-row">
+                        <span class="psych-bar-label">LÓGICA</span>
+                        <div class="psych-bar-track">
+                            <div class="psych-bar psych-bar-logica" id="barLogica" style="width:0%"></div>
+                        </div>
+                        <span class="psych-bar-pct" id="pctLogica">0%</span>
+                    </div>
+                    <div class="psych-bar-row">
+                        <span class="psych-bar-label">EMOCIÓN</span>
+                        <div class="psych-bar-track">
+                            <div class="psych-bar psych-bar-emocional" id="barEmocional" style="width:0%"></div>
+                        </div>
+                        <span class="psych-bar-pct" id="pctEmocional">0%</span>
+                    </div>
+                </div>
+
+                <div class="psych-description" id="psychDescription">Amas el desorden y tomas decisiones con estilo.</div>
+                <div class="psych-traits" id="psychTraits"></div>
+                <div class="psych-cta-text">¿Quién más se atreve a hacer este TEST?</div>
+                <div class="psych-site">DECISIONES-LOCAS.COM</div>
+
+                <div class="psych-actions">
+                    <button class="btn-share" id="shareBtn">📤 COMPARTIR RESULTADO</button>
+                    <button class="btn-continue" id="continueBtn">SEGUIR JUGANDO →</button>
+                </div>
             </div>
         </section>
-
-        <!-- ESPACIO PARA ANUNCIO FOOTER -->
-        <!-- <div class="ad-container ad-footer">Espacio para anuncio</div> -->
     </main>
+
+    <div class="toast" id="toast">¡Enlace copiado! 🔥 Compártelo</div>
 
     <script src="script.js"></script>
 </body>
