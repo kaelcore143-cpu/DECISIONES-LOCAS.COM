@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dilemas Virales | El juego de decisiones imposibles</title>
+    <meta name="description" content="Juega Dilemas Virales: el juego adictivo de decisiones imposibles. Elige entre opciones absurdas y descubre qué piensa la gente.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ESPACIO PARA ANUNCIO HEADER -->
+    <!-- <div class="ad-container ad-header">Espacio para anuncio</div> -->
+
+    <main class="game-container">
+        <header class="game-header">
+            <h1>🔥 DILEMAS VIRALES</h1>
+            <div class="stats">
+                <span id="streak">Racha: 0</span>
+            </div>
+        </header>
+
+        <section class="game-area" id="gameArea">
+            <!-- Pantalla de inicio -->
+            <div class="start-screen" id="startScreen">
+                <h2>¿Estás listo para decisiones imposibles?</h2>
+                <p>Tienes 5 segundos para elegir. No hay respuestas correctas... solo consecuencias.</p>
+                <button class="btn-primary" id="startBtn">JUGAR AHORA</button>
+            </div>
+
+            <!-- Pantalla de juego -->
+            <div class="dilemma-screen hidden" id="dilemmaScreen">
+                <div class="timer-container">
+                    <div class="timer-bar" id="timerBar"></div>
+                </div>
+                
+                <div class="dilemma-content">
+                    <h2 id="dilemmaQuestion" class="dilemma-question"></h2>
+                </div>
+
+                <div class="options-container" id="optionsContainer">
+                    <button class="option-btn" id="optionA" data-option="A">
+                        <span class="option-label">A</span>
+                        <span class="option-text" id="textA"></span>
+                    </button>
+                    <button class="option-btn" id="optionB" data-option="B">
+                        <span class="option-label">B</span>
+                        <span class="option-text" id="textB"></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Pantalla de resultado -->
+            <div class="result-screen hidden" id="resultScreen">
+                <div class="result-content">
+                    <div class="percentage-display" id="percentageDisplay"></div>
+                    <p class="result-text" id="resultText"></p>
+                    <p class="sarcastic-response" id="sarcasticResponse"></p>
+                </div>
+                <button class="btn-primary" id="nextBtn">SIGUIENTE DILEMA →</button>
+            </div>
+        </section>
+
+        <!-- ESPACIO PARA ANUNCIO FOOTER -->
+        <!-- <div class="ad-container ad-footer">Espacio para anuncio</div> -->
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
