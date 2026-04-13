@@ -96,18 +96,36 @@
                 </button>
             </div>
 
+            <!-- Pantalla de análisis (delay dramático) -->
+            <div class="analyzing-screen hidden" id="analyzingScreen">
+                <div class="analyzing-spinner"></div>
+                <div class="analyzing-text">ANALIZANDO TUS DECISIONES...</div>
+                <div class="analyzing-sub">Descifrando tu psique en tiempo real</div>
+                <div class="analyzing-dots">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+
             <!-- Pantalla de resultado psicológico VIRAL -->
             <div class="psych-result-screen hidden" id="psychResultScreen">
-                <div class="psych-header">
-                    <span class="psych-label">¡TU RESULTADO PSICOLÓGICO!</span>
-                </div>
-                <div class="psych-eres-text">ERES:</div>
+                <div class="psych-badge-exclusive">🔥 RESULTADO EXCLUSIVO</div>
+                
                 <div class="psych-title-wrap">
                     <span class="psych-emoji" id="psychEmoji">😈</span>
                     <div class="psych-archetype-block">
+                        <div class="psych-eres">ERES:</div>
                         <div class="psych-archetype" id="psychArchetype">EL CAÓTICO</div>
-                        <div class="psych-archetype-sub" id="psychArchetypeSub">MAESTRO</div>
+                        <div class="psych-archetype-sub" id="psychArchetypeSub">INTELIGENTE</div>
                     </div>
+                </div>
+                
+                <!-- Presión social -->
+                <div class="social-proof" id="socialProof">
+                    <div class="rarity-badge">
+                        <span class="rarity-pct" id="rarityPct">12%</span>
+                        <span class="rarity-text">obtienen este resultado</span>
+                    </div>
+                    <div class="comparison-text" id="comparisonText">La mayoría no responde como tú</div>
                 </div>
                 
                 <div class="psych-bars-container">
@@ -143,18 +161,25 @@
 
                 <div class="psych-description" id="psychDescription">Amas el desorden y tomas decisiones con estilo.</div>
                 <div class="psych-traits" id="psychTraits"></div>
-                <div class="psych-cta-text">¿Quién más se atreve a hacer este TEST?</div>
-                <div class="psych-site">DECISIONES-LOCAS.COM</div>
+                
+                <div class="psych-cta">
+                    <div class="cta-text">¿Tus amigos obtendrán el mismo resultado?</div>
+                    <div class="psych-site">DILEMASVIRALES.COM</div>
+                </div>
 
                 <div class="psych-actions">
-                    <button class="btn-share" id="shareBtn">📤 COMPARTIR RESULTADO</button>
-                    <button class="btn-continue" id="continueBtn">SEGUIR JUGANDO →</button>
+                    <button class="btn-compare" id="compareBtn">� COMPARAR CON TUS AMIGOS</button>
+                    <button class="btn-download hidden" id="downloadBtn">⬇️ DESCARGAR IMAGEN</button>
+                    <button class="btn-continue-small" id="continueBtn">Seguir jugando →</button>
                 </div>
             </div>
+
+            <!-- Canvas oculto para generar imagen -->
+            <canvas id="shareCanvas" width="1080" height="1920" style="display:none;"></canvas>
         </section>
     </main>
 
-    <div class="toast" id="toast">¡Enlace copiado! 🔥 Compártelo</div>
+    <div class="toast" id="toast">¡Copiado! 🔥 Ahora compártelo</div>
 
     <script src="script.js"></script>
 </body>

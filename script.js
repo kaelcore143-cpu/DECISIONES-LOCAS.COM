@@ -82,133 +82,145 @@ const dilemmas = [
 // ============================================
 // ARQUETIPOS PSICOLÓGICOS (pantalla viral)
 // ============================================
+// 💣 TOP 10 RESULTADOS VIRALES
 const arquetipos = {
-    caos: {
+    // 1. 😈 El Caótico Inteligente (caos > 7 && logica > 5)
+    caotico_inteligente: {
         emoji: "😈",
         titulo: "EL CAÓTICO",
-        subtitulo: "MAESTRO",
-        descripcion: "Amas el desorden y tomas decisiones con estilo. El caos no te asusta — te motiva.",
+        subtitulo: "INTELIGENTE",
+        rareza: 12,
+        descripcion: "Rompes reglas… pero sabes exactamente cuándo hacerlo.",
         rasgos: [
             { icon: "🔥", texto: "El caos es tu zona de confort" },
             { icon: "♟️", texto: "Planeas... pero rompes las reglas" },
             { icon: "👻", texto: "Peligrosamente impredecible" }
         ]
     },
-    caos_ego: {
-        emoji: "🦁",
-        titulo: "EL REBELDE",
-        subtitulo: "SIN CAUSA",
-        descripcion: "No sigues reglas. Tampoco las creas. Simplemente haces lo que quieres y point.",
-        rasgos: [
-            { icon: "⚡", texto: "Las normas son sugerencias para ti" },
-            { icon: "🎯", texto: "Actúas antes de pensar. Siempre." },
-            { icon: "🔪", texto: "Tu instinto es tu única brújula" }
-        ]
-    },
-    logica: {
+    // 2. 🧠 El Estratega Frío (logica > 8)
+    estratega_frio: {
         emoji: "🧠",
         titulo: "EL ESTRATEGA",
         subtitulo: "FRÍO",
-        descripcion: "Calculas antes de actuar. Las emociones no te gobiernan — son solo datos.",
+        rareza: 8,
+        descripcion: "No decides con emociones. Y eso asusta un poco.",
         rasgos: [
-            { icon: "⚡", texto: "Tu cerebro funciona a 3000 rpm" },
+            { icon: "🧊", texto: "Imperturbable bajo presión" },
             { icon: "🎯", texto: "Siempre hay un plan detrás" },
-            { icon: "🧊", texto: "Imperturbable bajo presión" }
+            { icon: "⚡", texto: "Tu cerebro funciona a 3000 rpm" }
         ]
     },
-    logica_ego: {
-        emoji: "🦊",
-        titulo: "EL MANIPULADOR",
-        subtitulo: "ELEGANTE",
-        descripcion: "Sabes exactamente qué decir y cuándo. La gente cree que decides con el corazón. Mentira.",
+    // 3. 🔥 El Impredecible (por defecto o caos > 6 && emocional > 5)
+    impredecible: {
+        emoji: "🔥",
+        titulo: "EL IMPREVISIBLE",
+        subtitulo: "",
+        rareza: 18,
+        descripcion: "Ni tú sabes qué harás… y eso es tu ventaja.",
+        rasgos: [
+            { icon: "⚡", texto: "Las normas son sugerencias para ti" },
+            { icon: "🎲", texto: "Las decisiones te sorprenden a ti también" },
+            { icon: "🌪️", texto: "Dejas un rastro de caos memorable" }
+        ]
+    },
+    // 4. 👑 El Dominante (ego > 7)
+    dominante: {
+        emoji: "👑",
+        titulo: "EL DOMINANTE",
+        subtitulo: "",
+        rareza: 10,
+        descripcion: "No sigues el juego… lo controlas.",
         rasgos: [
             { icon: "🎭", texto: "Cada conversación es un tablero de ajedrez" },
+            { icon: "🎯", texto: "Actúas antes de pensar. Siempre." },
+            { icon: "💎", texto: "La imagen es todo" }
+        ]
+    },
+    // 5. 🎭 El Doble Cara (ego > 5 && logica > 5)
+    doble_cara: {
+        emoji: "🎭",
+        titulo: "EL DOBLE CARA",
+        subtitulo: "",
+        rareza: 15,
+        descripcion: "Sabes adaptarte. Demasiado bien.",
+        rasgos: [
+            { icon: "🎩", texto: "La lógica al servicio del ego" },
             { icon: "🔮", texto: "Ves los movimientos 3 pasos adelante" },
-            { icon: "🧩", texto: "La lógica al servicio del ego" }
+            { icon: "🎤", texto: "El escenario siempre está donde tú estás" }
         ]
     },
-    emocional: {
-        emoji: "💔",
-        titulo: "EL ROMÁNTICO",
-        subtitulo: "TRÁGICO",
-        descripcion: "Sientes todo al máximo. Tu corazón toma las decisiones antes de que tu cabeza reaccione.",
-        rasgos: [
-            { icon: "❤️", texto: "Tu intuición rara vez falla" },
-            { icon: "🌊", texto: "Las emociones son tu superpoder" },
-            { icon: "🎭", texto: "Intenso. Siempre intenso." }
-        ]
-    },
-    emocional_caos: {
-        emoji: "🌪️",
-        titulo: "EL TORBELLINO",
-        subtitulo: "EMOCIONAL",
-        descripcion: "Sientes con la intensidad de un huracán y actúas con la lógica de uno también.",
-        rasgos: [
-            { icon: "💥", texto: "De 0 a 100 en segundos" },
-            { icon: "🎲", texto: "Las decisiones te sorprenden a ti también" },
-            { icon: "🌈", texto: "Caótico pero auténtico" }
-        ]
-    },
-    ego: {
-        emoji: "👑",
-        titulo: "EL NARCISISTA",
-        subtitulo: "BRILLANTE",
-        descripcion: "Sabes que eres diferente. Y quieres que todos lo sepan. No es arrogancia, es convicción.",
-        rasgos: [
-            { icon: "💎", texto: "La imagen es todo" },
-            { icon: "🔍", texto: "Consciente de tu audiencia invisible" },
-            { icon: "🚀", texto: "Tu reputación va primero" }
-        ]
-    },
-    ego_logica: {
-        emoji: "🎩",
-        titulo: "EL ARQUITECTO",
-        subtitulo: "DE SÍ MISMO",
-        descripcion: "Has construido tu imagen con precisión quirúrgica. Nada en ti es accidental.",
-        rasgos: [
-            { icon: "🏗️", texto: "Tu marca personal es tu obra maestra" },
-            { icon: "📐", texto: "Cada decisión refuerza quien quieres ser" },
-            { icon: "🪞", texto: "El espejo más importante eres tú" }
-        ]
-    },
-    caos_emocional: {
-        emoji: "🔥",
-        titulo: "EL EXPLOSIVO",
-        subtitulo: "APASIONADO",
-        descripcion: "Vives al límite. Amas con ferocidad, decides con el estómago y nunca te arrepientes en público.",
+    // 6. 🧨 El Caos Puro (caos > 8)
+    caos_puro: {
+        emoji: "🧨",
+        titulo: "EL CAOS PURO",
+        subtitulo: "",
+        rareza: 9,
+        descripcion: "No buscas problemas… pero siempre te encuentran.",
         rasgos: [
             { icon: "💣", texto: "Primero actúas, después piensas" },
-            { icon: "❤️‍🔥", texto: "Todo o nada, nunca el medio" },
-            { icon: "⚡", texto: "Nadie te olvida después de conocerte" }
+            { icon: "💥", texto: "De 0 a 100 en segundos" },
+            { icon: "🔪", texto: "Tu instinto es tu única brújula" }
         ]
     },
-    logica_emocional: {
-        emoji: "⚖️",
-        titulo: "EL OBSERVADOR",
-        subtitulo: "CALCULADOR",
-        descripcion: "Ves todo. Sientes todo. Pero rara vez lo muestras. Eres el más complejo de la sala.",
+    // 7. 🧩 El Analista (logica > 6)
+    analista: {
+        emoji: "🧩",
+        titulo: "EL ANALISTA",
+        subtitulo: "",
+        rareza: 14,
+        descripcion: "Piensas demasiado… pero casi nunca te equivocas.",
         rasgos: [
             { icon: "👁️", texto: "Procesas más de lo que expresas" },
             { icon: "🧬", texto: "Razón y emoción en equilibrio tenso" },
-            { icon: "🌙", texto: "Tu profundidad intimida a la gente" }
+            { icon: "🔍", texto: "Consciente de tu audiencia invisible" }
         ]
     },
-    ego_caos: {
-        emoji: "🎆",
-        titulo: "EL SHOWMAN",
-        subtitulo: "CAÓTICO",
-        descripcion: "Eres el centro de atención y el origen del desorden. Cada habitación cambia cuando entras.",
+    // 8. 🫀 El Emocional Intenso (emocional > 8)
+    emocional_intenso: {
+        emoji: "🫀",
+        titulo: "EL EMOCIONAL",
+        subtitulo: "INTENSO",
+        rareza: 11,
+        descripcion: "Sientes todo… al máximo.",
         rasgos: [
-            { icon: "🎤", texto: "El escenario siempre está donde tú estás" },
-            { icon: "🌪️", texto: "Dejas un rastro de caos memorable" },
-            { icon: "😎", texto: "El drama te sigue porque lo invitas" }
+            { icon: "❤️", texto: "Tu intuición rara vez falla" },
+            { icon: "🌊", texto: "Las emociones son tu superpoder" },
+            { icon: "❤️‍🔥", texto: "Todo o nada, nunca el medio" }
         ]
     },
+    // 9. 😶‍🌫️ El Neutral Peligroso (balance)
+    neutral_peligroso: {
+        emoji: "😶‍🌫️",
+        titulo: "EL NEUTRAL",
+        subtitulo: "PELIGROSO",
+        rareza: 7,
+        descripcion: "Pareces tranquilo… pero no lo eres.",
+        rasgos: [
+            { icon: "🌙", texto: "Tu profundidad intimida a la gente" },
+            { icon: "🎲", texto: "Impredecible hasta para ti mismo" },
+            { icon: "🔮", texto: "Tu perfil psicológico tiene glitch" }
+        ]
+    },
+    // 10. ⚡ El Rápido (caos > 6 && emocional > 4)
+    rapido: {
+        emoji: "⚡",
+        titulo: "EL RÁPIDO",
+        subtitulo: "",
+        rareza: 16,
+        descripcion: "No piensas… reaccionas. Y muchas veces ganas.",
+        rasgos: [
+            { icon: "⚡", texto: "Actúas antes de pensar. Siempre." },
+            { icon: "🎯", texto: "El caos es tu zona de confort" },
+            { icon: "🚀", texto: "Tu reputación va primero" }
+        ]
+    },
+    // Fallback: El Impredecible
     mixto: {
         emoji: "🌀",
-        titulo: "EL ENIGMA",
-        subtitulo: "TOTAL",
-        descripcion: "Eres un caso sin clasificar. Ni los algoritmos ni los psicólogos te tienen claro. Incluido tú.",
+        titulo: "EL IMPOSIBLE",
+        subtitulo: "ÚNICO",
+        rareza: 3,
+        descripcion: "Ni los algoritmos ni los psicólogos te tienen claro. Incluido tú.",
         rasgos: [
             { icon: "❓", texto: "Impredecible hasta para ti mismo" },
             { icon: "🎲", texto: "Cada decisión es una sorpresa" },
@@ -418,6 +430,7 @@ const screens = {
     start: document.getElementById('startScreen'),
     dilemma: document.getElementById('dilemmaScreen'),
     result: document.getElementById('resultScreen'),
+    analyzing: document.getElementById('analyzingScreen'),
     psychResult: document.getElementById('psychResultScreen')
 };
 
@@ -454,10 +467,17 @@ const elements = {
     pctLogica: document.getElementById('pctLogica'),
     pctEmocional: document.getElementById('pctEmocional'),
     shareBtn: document.getElementById('shareBtn'),
+    compareBtn: document.getElementById('compareBtn'),
+    downloadBtn: document.getElementById('downloadBtn'),
     continueBtn: document.getElementById('continueBtn'),
     toast: document.getElementById('toast'),
     optionsContainer: document.getElementById('optionsContainer'),
-    revealCountdown: document.getElementById('revealCountdown')
+    revealCountdown: document.getElementById('revealCountdown'),
+    // Social proof elements
+    rarityPct: document.getElementById('rarityPct'),
+    comparisonText: document.getElementById('comparisonText'),
+    // Canvas
+    shareCanvas: document.getElementById('shareCanvas')
 };
 
 // ============================================
@@ -469,8 +489,10 @@ function init() {
     elements.optionA.addEventListener('click', () => handleChoice('A'));
     elements.optionB.addEventListener('click', () => handleChoice('B'));
     elements.nextBtn.addEventListener('click', nextDilemma);
-    elements.shareBtn.addEventListener('click', shareResult);
-    elements.continueBtn.addEventListener('click', continueAfterPsych);
+    elements.shareBtn?.addEventListener('click', shareResult);
+    elements.compareBtn?.addEventListener('click', compareWithFriends);
+    elements.downloadBtn?.addEventListener('click', downloadResultImage);
+    elements.continueBtn?.addEventListener('click', continueAfterPsych);
 }
 
 function startGame() {
@@ -595,16 +617,30 @@ function handleChoice(choice, isTimeout = false) {
     elements.optionA.disabled = true;
     elements.optionB.disabled = true;
     
-    // ¿Mostrar pantalla psicológica cada 5 decisiones?
-    const showPsychScreen = totalDecisions > 0 && totalDecisions % 5 === 0;
+    // ¿Mostrar pantalla psicológica cada 10 decisiones (bloqueante)?
+    const showPsychScreen = totalDecisions > 0 && totalDecisions % 10 === 0;
+    // Cada 5 decisiones (pero no cada 10) mostrar resultado normal
+    const showNormalMilestone = totalDecisions > 0 && totalDecisions % 5 === 0 && !showPsychScreen;
     
     setTimeout(() => {
         if (showPsychScreen) {
-            showPsychResult();
+            // Flujo viral: análisis dramático → resultado psicológico
+            showAnalyzingScreen();
         } else {
             showResult(choice, isTimeout);
         }
     }, 350);
+}
+
+// ---- PANTALLA DE ANÁLISIS DRAMÁTICO ----
+function showAnalyzingScreen() {
+    hideAllScreens();
+    screens.analyzing.classList.remove('hidden');
+    
+    // 1 segundo de suspense antes de revelar resultado
+    setTimeout(() => {
+        showPsychResult();
+    }, 1000);
 }
 
 function getRandomComment() {
@@ -649,28 +685,48 @@ function showPsychResult() {
     const { caos, logica, emocional, ego } = psychologicalProfile;
     const total = caos + logica + emocional + ego;
     
-    // Determinar arquetipo: top-1 y top-2 trait combinados
+    // 🎯 LÓGICA TOP 10 RESULTADOS (percepción > precisión)
     let dominant = 'mixto';
     if (total > 0) {
-        const scores = { caos, logica, emocional, ego };
-        const sorted = Object.keys(scores).sort((a, b) => scores[b] - scores[a]);
-        const top1 = sorted[0];
-        const top2 = sorted[1];
-        const top1pct = scores[top1] / total;
-        const top2pct = scores[top2] / total;
-
-        if (top1pct >= 0.5) {
-            // Dominancia clara — usar arquetipo simple
-            dominant = top1;
-        } else if (top1pct >= 0.3 && top2pct >= 0.2) {
-            // Combinación top1 + top2
-            const combo = `${top1}_${top2}`;
-            const comboAlt = `${top2}_${top1}`;
-            if (arquetipos[combo]) dominant = combo;
-            else if (arquetipos[comboAlt]) dominant = comboAlt;
-            else dominant = top1;
-        } else {
-            dominant = top1;
+        // 1. 😈 El Caótico Inteligente (caos > 7 && logica > 5)
+        if (caos >= 7 && logica >= 5) {
+            dominant = 'caotico_inteligente';
+        }
+        // 2. 🧠 El Estratega Frío (logica > 8)
+        else if (logica >= 8) {
+            dominant = 'estratega_frio';
+        }
+        // 3. 👑 El Dominante (ego > 7)
+        else if (ego >= 7) {
+            dominant = 'dominante';
+        }
+        // 4. 🧨 El Caos Puro (caos > 8)
+        else if (caos >= 8) {
+            dominant = 'caos_puro';
+        }
+        // 5. 🫀 El Emocional Intenso (emocional > 8)
+        else if (emocional >= 8) {
+            dominant = 'emocional_intenso';
+        }
+        // 6. 🎭 El Doble Cara (ego > 5 && logica > 5)
+        else if (ego >= 5 && logica >= 5) {
+            dominant = 'doble_cara';
+        }
+        // 7. 🧩 El Analista (logica > 6)
+        else if (logica >= 6) {
+            dominant = 'analista';
+        }
+        // 8. ⚡ El Rápido (caos > 6 && emocional > 4)
+        else if (caos >= 6 && emocional >= 4) {
+            dominant = 'rapido';
+        }
+        // 9. 😶‍🌫️ El Neutral Peligroso (balance: diferencias menores a 2)
+        else if (Math.abs(caos - logica) <= 2 && Math.abs(ego - emocional) <= 2) {
+            dominant = 'neutral_peligroso';
+        }
+        // 10. 🔥 El Impredecible (por defecto)
+        else {
+            dominant = 'impredecible';
         }
     }
     
@@ -707,28 +763,184 @@ function showPsychResult() {
         elements.pctEmocional.textContent = pcts.emocional + '%';
     }, 300);
     
+    // Presión social: mostrar rareza del resultado
+    if (elements.rarityPct && elements.comparisonText) {
+        const rarity = archetype.rareza || 10;
+        elements.rarityPct.textContent = rarity + '%';
+        const comparisons = [
+            "La mayoría no responde como tú",
+            "Eres más único de lo que crees",
+            "Pocos tienen este perfil psicológico",
+            "Tu forma de decidir es rara",
+            "No encajas en el promedio"
+        ];
+        elements.comparisonText.textContent = comparisons[Math.floor(Math.random() * comparisons.length)];
+    }
+    
+    // Guardar resultado para compartir
     window._currentResult = {
         archetype: archetype.titulo + ' ' + archetype.subtitulo,
         pcts,
-        dominant
+        dominant,
+        rareza: archetype.rareza || 10,
+        emoji: archetype.emoji
     };
+    
+    // Generar imagen automáticamente para tenerla lista
+    generateResultImage();
+}
+
+function generateResultImage() {
+    const canvas = elements.shareCanvas;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const result = window._currentResult;
+    if (!result) return;
+    
+    const w = canvas.width;
+    const h = canvas.height;
+    
+    // Fondo oscuro degradado
+    const grad = ctx.createLinearGradient(0, 0, 0, h);
+    grad.addColorStop(0, '#080604');
+    grad.addColorStop(1, '#141008');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, w, h);
+    
+    // Línea de acento superior
+    ctx.fillStyle = '#ff6a00';
+    ctx.fillRect(0, 0, w, 8);
+    
+    // Título principal
+    ctx.fillStyle = '#f5ede0';
+    ctx.font = 'bold 80px "Bebas Neue", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('DILEMAS VIRALES', w/2, 140);
+    
+    // Emoji grande
+    ctx.font = '200px serif';
+    ctx.fillText(result.emoji, w/2, 380);
+    
+    // "ERES:"
+    ctx.fillStyle = '#7a6a55';
+    ctx.font = '40px "Rajdhani", sans-serif';
+    ctx.fillText('ERES:', w/2, 440);
+    
+    // Título del arquetipo
+    ctx.fillStyle = '#ff6a00';
+    ctx.font = 'bold 100px "Bebas Neue", sans-serif';
+    ctx.fillText(result.archetype.split(' ')[0] || 'EL', w/2, 540);
+    ctx.fillText(result.archetype.split(' ').slice(1).join(' ') || 'CAÓTICO', w/2, 640);
+    
+    // Rareza
+    ctx.fillStyle = '#ffd60a';
+    ctx.font = 'bold 60px "Rajdhani", sans-serif';
+    ctx.fillText(`SOLO EL ${result.rareza}% LO OBTIENE`, w/2, 720);
+    
+    // Stats
+    const stats = [
+        { label: 'CAOS', pct: result.pcts.caos, color: '#e74c3c' },
+        { label: 'EGO', pct: result.pcts.ego, color: '#9b59b6' },
+        { label: 'LÓGICA', pct: result.pcts.logica, color: '#00cfff' },
+        { label: 'EMOCIÓN', pct: result.pcts.emocional, color: '#00ff88' }
+    ];
+    
+    let y = 850;
+    stats.forEach(stat => {
+        // Label
+        ctx.fillStyle = '#f5ede0';
+        ctx.font = 'bold 36px "Rajdhani", sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText(stat.label, 100, y);
+        
+        // Barra de fondo
+        ctx.fillStyle = 'rgba(255,255,255,0.1)';
+        ctx.fillRect(320, y - 30, 600, 40);
+        
+        // Barra de valor
+        ctx.fillStyle = stat.color;
+        ctx.fillRect(320, y - 30, 600 * (stat.pct / 100), 40);
+        
+        // Porcentaje
+        ctx.fillStyle = '#f5ede0';
+        ctx.textAlign = 'right';
+        ctx.fillText(stat.pct + '%', 960, y);
+        
+        y += 90;
+    });
+    
+    // CTA
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#7a6a55';
+    ctx.font = '40px "Rajdhani", sans-serif';
+    ctx.fillText('¿Quién más es como tú?', w/2, h - 120);
+    
+    // URL
+    ctx.fillStyle = '#ff6a00';
+    ctx.font = 'bold 52px "Share Tech Mono", monospace';
+    ctx.fillText('decisiones-locas.com', w/2, h - 55);
 }
 
 function shareResult() {
     const result = window._currentResult;
     if (!result) return;
     
-    const text = `🔥 DILEMAS VIRALES\n\n¡Hice el test y soy: ${result.archetype}!\n\n` +
-        `🔴 CAOS: ${result.pcts.caos}%\n` +
-        `🟣 EGO: ${result.pcts.ego}%\n` +
-        `🔵 LÓGICA: ${result.pcts.logica}%\n` +
-        `🟢 EMOCIÓN: ${result.pcts.emocional}%\n\n` +
+    const text = `🔥 DILEMAS VIRALES\n\n` +
+        `¡Soy ${result.archetype} ${result.emoji}!\n` +
+        `Solo el ${result.rareza}% obtiene este resultado.\n\n` +
+        `🔴 Caos: ${result.pcts.caos}% | 🟣 Ego: ${result.pcts.ego}%\n` +
+        `🔵 Lógica: ${result.pcts.logica}% | 🟢 Emoción: ${result.pcts.emocional}%\n\n` +
         `¿Y tú? 👉 decisiones-locas.com`;
     
-    if (navigator.share) {
-        navigator.share({ title: 'Dilemas Virales', text }).catch(() => copyToClipboard(text));
+    // Intentar compartir imagen si existe
+    const canvas = elements.shareCanvas;
+    if (canvas && navigator.share && navigator.canShare) {
+        canvas.toBlob(blob => {
+            if (blob) {
+                const file = new File([blob], 'mi-resultado-dilemas-virales.png', { type: 'image/png' });
+                const shareData = { 
+                    title: 'Soy ' + result.archetype, 
+                    text: text,
+                    files: [file]
+                };
+                if (navigator.canShare(shareData)) {
+                    navigator.share(shareData).catch(() => copyToClipboard(text));
+                    return;
+                }
+            }
+            copyToClipboard(text);
+        });
     } else {
         copyToClipboard(text);
+    }
+}
+
+function compareWithFriends() {
+    // Primero mostrar botón de descarga, luego permitir continuar
+    if (elements.downloadBtn) {
+        elements.downloadBtn.classList.remove('hidden');
+    }
+    shareResult();
+}
+
+function downloadResultImage() {
+    const canvas = elements.shareCanvas;
+    if (!canvas) return;
+    
+    const link = document.createElement('a');
+    link.download = 'dilemas-virales-resultado.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+    
+    showToastCustom('¡Imagen descargada! 🔥');
+}
+
+function showToastCustom(message) {
+    const toast = elements.toast;
+    if (toast) {
+        toast.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
     }
 }
 

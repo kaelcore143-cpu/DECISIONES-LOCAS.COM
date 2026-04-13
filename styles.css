@@ -36,13 +36,15 @@ body {
     font-family: var(--font-body);
     background: var(--bg);
     color: var(--text);
-    min-height: 100vh;
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height para móvil */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    overflow-x: hidden;
+    overflow: hidden;
     position: relative;
+    touch-action: manipulation; /* Optimizar para touch */
 }
 
 /* ---- EFECTOS DE FONDO ---- */
@@ -656,6 +658,14 @@ canvas#particleCanvas {
     text-align: center;
     animation: fadeUp 0.4s ease-out;
     position: relative;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .psych-header {
@@ -916,21 +926,111 @@ canvas#particleCanvas {
 
 /* ---- RESPONSIVE MÓVIL ---- */
 @media (max-width: 480px) {
-    html { font-size: 14px; }
-    .game-container { padding: 0.75rem; }
-    .game-area { padding: 1.5rem 1.25rem; }
+    html { font-size: 18px; } /* 🔥 Base grande para móvil */
+    .game-container { padding: 0.75rem; height: 100vh; height: 100dvh; }
+    .game-area { padding: 1.25rem; }
     .glitch-text, .glitch-text::before, .glitch-text::after { font-size: 1.3rem; }
     .start-title { font-size: 2.4rem; }
-    .dilemma-question { font-size: 1.2rem; }
+    
+    /* 🔥 Pregunta legible 24px */
+    .dilemma-question { 
+        font-size: 1.5rem; 
+        line-height: 1.4;
+        margin-bottom: 1.25rem;
+    }
+    
+    /* 🔥 Botones grandes para zona de pulgar */
+    .option-btn {
+        padding: 1.15rem 1.1rem;
+        font-size: 1rem;
+        border-radius: 12px;
+        min-height: 64px;
+    }
+    
+    .option-label {
+        width: 42px;
+        height: 42px;
+        font-size: 1.3rem;
+    }
+    
+    .option-text {
+        font-size: 1.05rem;
+        line-height: 1.35;
+    }
+    
+    /* 🔥 Botones de acción más grandes */
+    .btn-compare, .btn-download, .btn-next {
+        padding: 1.1rem;
+        font-size: 1.1rem;
+        min-height: 56px;
+    }
+    
+    /* 🔥 Espaciado compacto */
+    .dilemma-header { margin-bottom: 1rem; }
+    .options-container { gap: 0.75rem; }
+    
+    /* 🔥 Pantalla de análisis ajustada */
+    .analyzing-screen {
+        min-height: 350px;
+        padding: 1.5rem 1rem;
+    }
+    
+    .analyzing-spinner {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .analyzing-text {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+    
+    .analyzing-sub {
+        font-size: 0.8rem;
+    }
+    
+    .analyzing-dots span {
+        width: 8px;
+        height: 8px;
+    }
+    
     .percentage-display { font-size: 4rem; }
-    .psych-archetype { font-size: 1.8rem; }
-    .psych-archetype-sub { font-size: 2.3rem; }
+    
+    /* 🔥 Resultado psicológico ajustado */
+    .psych-result-screen {
+        padding: 0.5rem 0;
+        justify-content: center;
+    }
+    
+    .psych-archetype { font-size: 1.6rem; }
+    .psych-archetype-sub { font-size: 2rem; }
     .psych-emoji { font-size: 2.2rem; }
+    
+    .psych-title-wrap {
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .psych-archetype-block {
+        text-align: center;
+    }
+    
+    .psych-bars-container {
+        width: 100%;
+        padding: 0 0.5rem;
+    }
 }
 
 @media (max-width: 360px) {
-    .game-area { padding: 1.25rem 1rem; }
-    .dilemma-question { font-size: 1.1rem; }
+    html { font-size: 16px; }
+    .game-area { padding: 1rem; }
+    .dilemma-question { font-size: 1.35rem; }
+    .option-btn {
+        padding: 1rem;
+        min-height: 60px;
+    }
     .start-title { font-size: 2rem; }
 }
 
@@ -945,3 +1045,208 @@ canvas#particleCanvas {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 3px; }
+
+/* ---- PANTALLA DE ANÁLISIS ---- */
+.analyzing-screen {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 400px;
+    width: 100%;
+    padding: 2rem 1rem;
+    animation: fadeUp 0.4s ease-out;
+}
+
+.analyzing-spinner {
+    width: 80px;
+    height: 80px;
+    border: 5px solid rgba(255,106,0,0.2);
+    border-top-color: var(--red);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 2rem;
+    flex-shrink: 0;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.analyzing-text {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--red);
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+.analyzing-sub {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--muted);
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    max-width: 100%;
+}
+
+.analyzing-dots {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.analyzing-dots span {
+    width: 10px;
+    height: 10px;
+    background: var(--red);
+    border-radius: 50%;
+    animation: dotPulse 0.6s ease-in-out infinite;
+}
+
+.analyzing-dots span:nth-child(2) { animation-delay: 0.2s; }
+.analyzing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+/* ---- PRESIÓN SOCIAL EN RESULTADO ---- */
+.social-proof {
+    background: rgba(255,214,10,0.08);
+    border: 1px solid rgba(255,214,10,0.3);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    animation: fadeUp 0.5s ease-out 0.4s both;
+}
+
+.rarity-badge {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.rarity-pct {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--yellow);
+    line-height: 1;
+}
+
+.rarity-text {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--yellow);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.comparison-text {
+    font-size: 0.9rem;
+    color: var(--text);
+    font-weight: 600;
+    font-style: italic;
+}
+
+.psych-badge-exclusive {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    color: var(--red);
+    background: rgba(232,35,58,0.1);
+    border: 1px solid rgba(232,35,58,0.3);
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+    display: inline-block;
+}
+
+.psych-eres {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--muted);
+    letter-spacing: 3px;
+    margin-bottom: 0.25rem;
+}
+
+.psych-cta {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.psych-cta .cta-text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+}
+
+/* ---- BOTONES VIRALES ---- */
+.btn-compare {
+    width: 100%;
+    padding: 1.1rem;
+    background: linear-gradient(135deg, var(--red) 0%, var(--red2) 100%);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 8px 24px rgba(232,35,58,0.4);
+    animation: comparePulse 2s ease-in-out infinite;
+    margin-bottom: 0.5rem;
+}
+
+@keyframes comparePulse {
+    0%, 100% { box-shadow: 0 8px 24px rgba(232,35,58,0.4); }
+    50% { box-shadow: 0 8px 32px rgba(232,35,58,0.6), 0 0 0 4px rgba(232,35,58,0.1); }
+}
+
+.btn-compare:hover {
+    transform: translateY(-2px);
+    animation: none;
+    box-shadow: 0 12px 32px rgba(232,35,58,0.55);
+}
+
+.btn-download {
+    width: 100%;
+    padding: 0.9rem;
+    background: rgba(255,255,255,0.08);
+    border: 2px dashed var(--muted);
+    border-radius: 10px;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 0.5rem;
+}
+
+.btn-download:hover {
+    border-color: var(--green);
+    color: var(--green);
+    background: rgba(57,255,20,0.05);
+}
+
+.btn-continue-small {
+    width: 100%;
+    padding: 0.6rem;
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-continue-small:hover {
+    color: var(--text);
+}
