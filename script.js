@@ -70,13 +70,99 @@ const dilemmas = [
     { id: 51, pregunta: "¿Prefieres ser increíblemente talentoso en algo que nadie valora, o mediocre en algo que el mundo ama?", opcionA: "Talento invisible", opcionB: "Mediocridad amada", respuestaSarcasticaA: "El mejor del mundo tocando el triángulo. Genio sin público. Arte puro e ignorado.", respuestaSarcasticaB: "Cantante mediocre con millones de fans. La injusticia hecha persona." },
     { id: 52, pregunta: "¿Prefieres que la gente sepa exactamente lo que sientes por ellos, o que nunca nadie pueda saber lo que piensas?", opcionA: "Todos saben lo que siento", opcionB: "Nadie sabe lo que pienso", respuestaSarcasticaA: "Tu cara cuando ves a tu jefe los lunes dice todo. Y ahora él también lo sabe.", respuestaSarcasticaB: "Eres un enigma absoluto. Nadie sabe si los amas o los toleras. Poder puro." },
     { id: 53, pregunta: "¿Prefieres tener una vida emocionante llena de errores, o una vida tranquila y perfectamente aburrida?", opcionA: "Caos emocionante", opcionB: "Calma perfecta", respuestaSarcasticaA: "Historias increíbles, deudas ocasionales, ex que te bloquean. Material de libro.", respuestaSarcasticaB: "Todo bajo control. Nada interesante. Vives y nadie nota la diferencia." },
-    { id: 54, pregunta: "¿Prefieres saber que una persona cercana te miente habitualmente pero no saber quién, o saber quién pero no sobre qué?", opcionA: "Sé que hay un mentiroso pero no sé quién", opcionB: "Sé quién es pero no sobre qué miente", respuestaSarcasticaA: "Miras a todos con sospecha en la cena familiar. Paranoia navideña garantizada.", respuestaSarcasticaB: "Tu mejor amigo. Sabes que miente. Sobre algo. La duda te consumirá lentamente." },
-    { id: 55, pregunta: "¿Prefieres que todo el mundo te vea como más inteligente de lo que eres, o más atractivo de lo que eres?", opcionA: "Me ven más inteligente", opcionB: "Me ven más atractivo", respuestaSarcasticaA: "Te contrataron creyendo que eras brillante. Ahora tienes que fingir. Para siempre.", respuestaSarcasticaB: "La barra de expectativas sube. La realidad no. Cada primer encuentro es una decepción." },
-    { id: 56, pregunta: "¿Prefieres poder leer la mente de las personas pero no poder apagar esa habilidad, o nunca entender lo que nadie realmente quiere decir?", opcionA: "Leer mentes sin control", opcionB: "No entender nunca el subtexto", respuestaSarcasticaA: "Escuchas lo que todos piensan. De ti. De todo. En bucle. Bienvenido al infierno.", respuestaSarcasticaB: "'Ya estoy bien' — crees que está bien. Error. Siempre el mismo error." },
-    { id: 57, pregunta: "¿Prefieres que cada decisión importante de tu vida sea tomada por un dado, o que la tome la persona que menos te conoce?", opcionA: "El dado decide todo", opcionB: "El desconocido decide", respuestaSarcasticaA: "¿Acepto el trabajo? *lanza dado* 4. No. ¿Me caso? *lanza dado* 2. Tampoco. Suerte.", respuestaSarcasticaB: "El señor de la panadería decide tu carrera. Dice que deberías ser marinero. Por qué no." },
-    { id: 58, pregunta: "¿Prefieres tener acceso a todo el conocimiento del mundo pero nunca poder compartirlo, o poder compartir todo pero no recordar nada?", opcionA: "Saber todo en silencio", opcionB: "Compartir todo sin recordar nada", respuestaSarcasticaA: "Sabes la respuesta a todo. Nadie te cree. No puedes demostrarlo. Frustración eterna.", respuestaSarcasticaB: "Explicas el universo brillantemente. Al día siguiente no sabes ni tu nombre." },
-    { id: 59, pregunta: "¿Prefieres vivir en un mundo donde todo el mundo es brutalmente honesto, o donde todo el mundo miente piadosamente siempre?", opcionA: "Honestidad brutal universal", opcionB: "Mentiras piadosas eternas", respuestaSarcasticaA: "'Ese vestido no te favorece nada.' 'Tu presentación fue aburrida.' 'Te soporto, no te quiero.' Bienvenido.", respuestaSarcasticaB: "Cada 'estás bien' es mentira. Cada 'te queda perfecto' también. Todo es ficción consensuada." },
-    { id: 60, pregunta: "¿Prefieres que la gente recuerde todo lo bueno de ti cuando ya no estés, o que lo viva contigo ahora pero lo olvide después?", opcionA: "Recordado bien para siempre", opcionB: "Vivido intensamente y olvidado", respuestaSarcasticaA: "Tu funeral será espectacular. Lástima que no estés para verlo.", respuestaSarcasticaB: "Presencia total ahora. Olvido total después. Como los fuegos artificiales." }
+    // --- NUEVOS DILEMAS 61-120 ---
+    { id: 61, pregunta: "¿Prefieres que cada vez que mientas te crezcan bigotes, o que cada vez que digas la verdad te tiña el pelo de azul?", opcionA: "Bigotes con cada mentira", opcionB: "Pelo azul con cada verdad", respuestaSarcasticaA: "Pronto parecerás un villano de caricatura. Las mujeres te temerán.", respuestaSarcasticaB: "Cabeza de azul intenso. La honestidad tiene un precio cromático.", rasgos: { A: { caos: 2, ego: 1 }, B: { logica: 2, emocional: 1 } } },
+    { id: 62, pregunta: "¿Prefieres tener que cantar todo lo que digas, o tener que bailar mientras caminas?", opcionA: "Cantar todo", opcionB: "Bailar al caminar", respuestaSarcasticaA: "Reuniones de trabajo como ópera. 'NECESITO MÁS TIEMPO' en soprano.", respuestaSarcasticaB: "Caminar al supermercado como si estuvieras en TikTok. Todo el mundo te filma.", rasgos: { A: { caos: 3, emocional: 1 }, B: { caos: 2, ego: 1 } } },
+    { id: 63, pregunta: "¿Prefieres que tu mascota pueda hablar pero solo te insulta, o que tu planta pueda hablar pero solo te da malos consejos?", opcionA: "Mascota insultona", opcionB: "Planta con malos consejos", respuestaSarcasticaA: "'Otra vez con esa comida de mierda' - tu gato todos los días.", respuestaSarcasticaB: 'Deberías dejar tu trabajo y dedicarte a comer galletas. - tu ficus.', rasgos: { A: { emocional: 2, caos: 1 }, B: { logica: 2, ego: 1 } } },
+    // ... (rest of the dilemmas)
+    { id: 64, pregunta: "¿Prefieres tener que usar ropa de los años 80 para siempre, o que toda tu ropa sea del mismo color?", opcionA: "Ropa de los 80", opcionB: "Todo un solo color", respuestaSarcasticaA: "Hombros acolchados, neón permanente. Parecerás un video musical malo.", respuestaSarcasticaB: "Monocromático total. Nadie sabrá si eres deprimido o minimalista." },
+    { id: 65, pregunta: "¿Prefieres que cada vez que te rías suene como un gallo, o que cada vez que llores suene como una trompeta?", opcionA: "Risa de gallo", opcionB: "Llanto de trompeta", respuestaSarcasticaA: "Chiste en funeral: CACAREO. Todos te miran. Incómodo máximo.", respuestaSarcasticaB: "Drama romántico: WAH-WAH-WAH. Suena a caricatura de dibujos animados." },
+    { id: 66, pregunta: "¿Prefieres que tu comida siempre esté fría, o que tus bebidas siempre estén calientes?", opcionA: "Comida fría", opcionB: "Bebidas calientes", respuestaSarcasticaA: "Pizza helada. Sopa congelada. Tu vida es un refrigerador.", respuestaSarcasticaB: "Agua caliente. Refresco caliente. Café hirviendo. Boca quemada permanente." },
+    { id: 67, pregunta: "¿Prefieres que todos puedan oír tus pensamientos cuando duermes, o que nunca puedas volver a soñar?", opcionA: "Pensamientos audibles al dormir", opcionB: "Sin sueños nunca", respuestaSarcasticaA: "Tu pareja escucha tus sueños con tu ex. Terapia de pareja obligatoria.", respuestaSarcasticaB: "Noches vacías, sin aventuras, sin pesadillas. Nada. Puro aburrimiento." },
+    { id: 68, pregunta: "¿Prefieres tener que contar hasta 100 antes de abrir cualquier puerta, o que cada puerta que abras te dé una pequeña descarga?", opcionA: "Contar hasta 100", opcionB: "Pequeña descarga", respuestaSarcasticaA: "Llegas tarde a todo. 'Espera, voy en 67... 68... 69...'", respuestaSarcasticaB: "Puertas = dolor. Pronto desarrollarás fobia y vivirás en una habitación abierta." },
+    { id: 69, pregunta: "¿Prefieres que tu reflejo hable contigo pero siempre te da malas noticias, o que tu sombra copie tus peores momentos?", opcionA: "Reflejo con malas noticias", opcionB: "Sombra copia errores", respuestaSarcasticaA: "Hoy te despedirán. Tu coche no arrancará. Se te olvidó las llaves. - el espejo.", respuestaSarcasticaB: "Tropiezas en público. Tu sombra lo repite indefinidamente. Humillación en bucle." },
+    { id: 70, pregunta: "¿Prefieres que cada vez que entres a un lugar suene música de terror, o que cada vez que salgas suene música de circo?", opcionA: "Música de terror al entrar", opcionB: "Música de circo al salir", respuestaSarcasticaA: "Entras a tu oficina: DUN-DUN-DUN. Todos piensan que vendrás a matarlos.", respuestaSarcasticaB: "Sales de una reunión seria: PA-PA-PA-PA. Pareces un payo fracasado." },
+    { id: 71, pregunta: "¿Prefieres que tu aliento sea invisible pero huele horrible, o que sea visible pero sin olor?", opcionA: "Aliento invisible maloliente", opcionB: "Aliento visible sin olor", respuestaSarcasticaA: "La gente retrocede sin saber por qué. Tú crees que eres repelente natural.", respuestaSarcasticaB: "Hablas y sale humo. Pareces dragón asmático. Pero al menos no huele." },
+    { id: 72, pregunta: "¿Prefieres tener que usar zapatos dos números más grandes, o ropa dos tallas más pequeña?", opcionA: "Zapatos demasiado grandes", opcionB: "Ropa demasiado pequeña", respuestaSarcasticaA: "Caminas como si llevaras flotadores. Tropezarás cada 5 minutos.", respuestaSarcasticaB: "Costuras a punto de explotar. Respiras y botones vuelan. Siempre incómodo." },
+    { id: 73, pregunta: "¿Prefieres que cada vez que mientas te tiemble una mano, o que cada vez que digas la verdad te parpadee un ojo?", opcionA: "Tiembla una mano al mentir", opcionB: "Parpadea un ojo al decir verdad", respuestaSarcasticaA: "'Te amo' con mano temblorando. Pareces nervioso o mentiroso. O ambos.", respuestaSarcasticaB: "'Sí, rompí el jarrón' *parpadeo*. Nadie puede creerte nunca." },
+    { id: 74, pregunta: "¿Prefieres que tu teléfono solo funcione con Wi-Fi, o que solo funcione con datos móviles?", opcionA: "Solo Wi-Fi", opcionB: "Solo datos móviles", respuestaSarcasticaA: "Casa = conexión perfecta. Calle = teléfono inútil. Eres un ermitaño digital.", respuestaSarcasticaB: "Calles perfectas. Casa = sin señal. Pagarás una fortuna en datos." },
+    { id: 75, pregunta: "¿Prefieres que cada vez que te bañes el agua se vuelva temporalmente invisible, o que siempre puedas ver a través de la ropa de la gente?", opcionA: "Agua invisible al bañarte", opcionB: "Ver a través de ropa", respuestaSarcasticaA: "Te bañas pero no ves el agua. Pareces un loco hablando solo en la ducha.", respuestaSarcasticaB: "Gimnasio = pesadilla. Reuniones = incómodas. Tu vida es complicada." },
+    { id: 76, pregunta: "¿Prefieres que tu voz suene siempre una octava más grave, o que todos crean que tienes 10 años más?", opcionA: "Voz más grave", opcionB: "Parecer 10 años mayor", respuestaSarcasticaA: "Mujer con voz de Barry White. Hombre con voz de demonio. Llamadas extrañas.", respuestaSarcasticaB: "A los 30 pareces 40. A los 40 pareces 50. Tinder se vuelve imposible." },
+    { id: 77, pregunta: "¿Prefieres que cada comida que prepares se queme, o que toda la comida que compres esté pasada?", opcionA: "Quemo todo lo que cocino", opcionB: "La comida comprada está pasada", respuestaSarcasticaA: "Chef del carbón. Tus invitados comen negro o no comen.", respuestaSarcasticaB: "Leche agria, pan mohoso, carne verde. Supermercado = campo minado." },
+    { id: 78, pregunta: "¿Prefieres tener que dormir 12 horas obligatorias, o nunca poder dormir más de 4 horas?", opcionA: "Dormir 12 horas siempre", opcionB: "Máximo 4 horas de sueño", respuestaSarcasticaA: "Vives la mitad del día. Pierdes eventos, trabajo, vida social.", respuestaSarcasticaB: "Cafeína permanente. Eres un zombi funcional pero irritable." },
+    { id: 79, pregunta: "¿Prefieres que cada vez que te enamores te salgan granos, o que cada vez que te enojen se te caiga el pelo?", opcionA: "Granos al enamorarte", opcionB: "Cae pelo al enojarte", respuestaSarcasticaA: "Cita perfecta pero cara de pizza. El amor tiene consecuencias dermatológicas.", respuestaSarcasticaB: "Tráfico = calvicie temporal. Jefe molesto = menos pelo. Pronto serás calvo." },
+    { id: 80, pregunta: "¿Prefieres que todos tus recuerdos tengan banda sonora de películas, o que puedas oler los recuerdos de otros?", opcionA: "Mis recuerdos con banda sonora", opcionB: "Oler recuerdos ajenos", respuestaSarcasticaA: "Tu primer beso con música dramática de Hollywood. Momentos épicos o ridículos.", respuestaSarcasticaB: "El supermercado huele a la infancia de desconocidos. Confusión olfativa total." },
+    { id: 81, pregunta: "¿Prefieres que cada vez que mientas te crezca una nariz de Pinocho, o que cada verdad duela físicamente?", opcionA: "Nariz crece al mentir", opcionB: "La verdad duele", respuestaSarcasticaA: "Mentiras pequeñas = nariz enorme. Pronto parecerás un personaje de cuento.", respuestaSarcasticaB: "'Sí, me gusta tu corte de pelo' *dolor*. La honestidad es tortura." },
+    { id: 82, pregunta: "¿Prefieres tener que usar ropa interior sobre la ropa, o que tu ropa siempre esté al revés?", opcionA: "Ropa interior visible", opcionB: "Ropa al revés", respuestaSarcasticaA: "Bra por fuera de la camisa. Boxer visible sobre los pantalones. Moda suicida.", respuestaSarcasticaB: "Costuras afuera, etiquetas visibles. Pareces que te vestiste a ciegas." },
+    { id: 83, pregunta: "¿Prefieres que cada vez que alguien te mire te pongas rojo, o que cada vez que te toquen te dé un calambre?", opcionA: "Me pongo rojo si me miran", opcionB: "Calambre si me tocan", respuestaSarcasticaA: "Elevador = tomate humano. Reunión = langosta cocida. Siempre avergonzado.", respuestaSarcasticaB: "Apretón de manos = convulsión. Abrazo = espasmo. Tocarte es peligroso." },
+    { id: 84, pregunta: "¿Prefieres que tu comida siempre sepa a pollo, o que todo lo que bebas sepa a agua?", opcionA: "Todo sabe a pollo", opcionB: "Todo sabe a agua", respuestaSarcasticaA: "Helado de pollo. Café de pollo. Pasta de pollo. Mono gastronómico.", respuestaSarcasticaB: "Refresco de agua. Jugo de agua. Vino de agua. La vida es insípida." },
+    { id: 85, pregunta: "¿Prefieres que cada vez que te rías salgan burbujas, o que cada vez que llores salga humo?", opcionA: "Burbujas al reír", opcionB: "Humo al llorar", respuestaSarcasticaA: "Chiste gracioso = fiesta de espuma. Película cómica = máquina de burbujas.", respuestaSarcasticaB: "Drama = incienso humano. Película triste = sauna improvisado. Alarma de fuego." },
+    { id: 86, pregunta: "¿Prefieres tener que hablar en rima todo el día viernes, o no poder hablar los martes?", opcionA: "Hablar en rima los viernes", opcionB: "Mudo los martes", respuestaSarcasticaA: "Reunión laboral: 'Buenos días, qué alegría, voy a contar mi historia'.", respuestaSarcasticaB: "Martes de mudo. Comunicación por señas. Frustración semanal garantizada." },
+    { id: 87, pregunta: "¿Prefieres que tu pelo cambie de color cada hora, o que tus ojos cambien de tamaño cada vez que parpadeas?", opcionA: "Pelo cambia de color", opcionB: "Ojos cambian de tamaño", respuestaSarcasticaA: "Lunes negro, martes azul, miércoles rosa. Nunca sabes qué color serás.", respuestaSarcasticaB: "Ojos grandes luego pequeños. Pareces un cartoon con problemas de glaucoma." },
+    { id: 88, pregunta: "¿Prefieres que cada vez que entres a un edificio suene una alarma, o que cada vez que salgas llueva solo sobre ti?", opcionA: "Alarma al entrar", opcionB: "Llueve sobre ti al salir", respuestaSarcasticaA: "Oficina: BEEP-BEEP-BEEP. Todos te miran. Eres una molestia ambulante.", respuestaSarcasticaB: "Siempre mojado al salir. Paraguas personal obligatorio. Nube privada." },
+    { id: 89, pregunta: "¿Prefieres que tus uñas crezcan 1cm por día, o que tu cabello crezca 1cm por hora?", opcionA: "Uñas crecen rápido", opcionB: "Cabello crece rápido", respuestaSarcasticaA: "Garras de tigre en una semana. Escribir es imposible. Te rascas la cara.", respuestaSarcasticaB: "Rapunzel moderno. Corte de pelo diario. Cabello en la comida. Enredos constantes." },
+    { id: 90, pregunta: "¿Prefieres que cada vez que digas 'hola' suene un aplauso, o que cada vez que digas 'adiós' suene una trompeta triste?", opcionA: "Aplauso al decir hola", opcionB: "Trompeta triste al decir adiós", respuestaSarcasticaA: "Entrar a cualquier lugar = ovación. Popularidad falsa pero divertida.", respuestaSarcasticaB: "Despedidas dramáticas. 'Chau' WAH-WAH. Todos se sienten tristes contigo." },
+    { id: 91, pregunta: "¿Prefieres tener que usar calcetines con sandalias para siempre, o que todos tus zapatos sean del pie contrario?", opcionA: "Calcetines con sandalias", opcionB: "Zapatos del pie contrario", respuestaSarcasticaA: "Crimen de moda permanente. Verano = tortura visual. Invierno = absurdo.", respuestaSarcasticaB: "Derecho en izquierdo, izquierdo en derecho. Caminar como pato. Ampollas garantizadas." },
+    { id: 92, pregunta: "¿Prefieres que cada vez que te sientes suene una risa grabada, o que cada vez que te levantes suene un esfuerzo de esfuerzo?", opcionA: "Risa al sentarse", opcionB: "Esfuerzo al levantarse", respuestaSarcasticaA: "Reunión seria: JAJAJA. Todos te miran. Pareces que te rien de ellos.", respuestaSarcasticaB: "Levantarse = UUUF. Pareces viejo y débil. Gym = soundtrack de sufrimiento." },
+    { id: 93, pregunta: "¿Prefieres que tu comida siempre esté demasiado salada, o que siempre esté demasiado dulce?", opcionA: "Comida demasiado salada", opcionB: "Comida demasiado dulce", respuestaSarcasticaA: "Pastel salado. Café salado. Todo sabe a mar. Sed permanente.", respuestaSarcasticaB: "Carne dulce. Verduras dulces. Diabetes inminente. Todo es postre." },
+    { id: 94, pregunta: "¿Prefieres que cada vez que mientas te tiemble la voz, o que cada vez que digas la verdad te tartamudees?", opcionA: "Voz tiembla al mentir", opcionB: "Tartamudez al decir verdad", respuestaSarcasticaA: "'Te amo' con voz vibrante. Pareces nervioso o emocionado. Siempre dudoso.", respuestaSarcasticaB: "S-s-sí. E-e-esto es verdad. Nadie te cree nunca. Frustración total." },
+    { id: 95, pregunta: "¿Prefieres tener que usar ropa de invierno en verano, o ropa de verano en invierno?", opcionA: "Ropa de invierno en verano", opcionB: "Ropa de verano en invierno", respuestaSarcasticaA: "Julio con abrigo y bufanda. Sudoración extrema. Pareces turista confundido.", respuestaSarcasticaB: "Diciembre con shorts y camiseta. Hipotermia segura. Eres un mártir de la moda." },
+    { id: 96, pregunta: "¿Prefieres que cada vez que te laves las manos salgan burbujas de colores, o que cada vez que te cepilles los dientes salga espuma de arcoíris?", opcionA: "Burbujas de colores en manos", opcionB: "Espuma de arcoíris en dientes", respuestaSarcasticaA: "Baño público = fiesta de espuma. Niños te siguen. Mágico pero incómodo.", respuestaSarcasticaB: "Cepillarse = unicornio. Boca brillante. Sonrisas espectaculares pero extrañas." },
+    { id: 97, pregunta: "¿Prefieres que tu sombra siempre tenga forma de animal, o que tu reflejo siempre tenga 10 años más?", opcionA: "Sombra con forma de animal", opcionB: "Reflejo envejecido", respuestaSarcasticaA: "Hoy sombra de gato, mañana de elefante. Parque zoológico personal.", respuestaSarcasticaB: "Espejo muestra versión futura. Depresión cada mañana. Envejecimiento acelerado." },
+    { id: 98, pregunta: "¿Prefieres que cada vez que toses salgan confetis, o que cada vez que estornudes salgan serpentinas?", opcionA: "Confetis al toser", opcionB: "Serpentinas al estornudar", respuestaSarcasticaA: "Resfriado = fiesta. Oficina con confetis. Limpieza constante pero divertida.", respuestaSarcasticaB: "Alergias = celebración. Estornudo = decoración. Primavera es carnaval nasal." },
+    { id: 99, pregunta: "¿Prefieres tener que usar audífonos todo el día, o que nunca más puedas escuchar música?", opcionA: "Audífonos siempre puestos", opcionB: "Nunca más música", respuestaSarcasticaA: "Conversaciones difíciles. Ducha con audífonos. Dormir con música. Aislamiento total.", respuestaSarcasticaB: "Vida en silencio. Podcasts aburridos. Sin canciones en el auto. Tristeza perpetua." },
+    { id: 100, pregunta: "¿Prefieres que cada vez que te enojes salgan chispas de tus dedos, o que cada vez que tengas miedo flotes un poco?", opcionA: "Chispas al enojarte", opcionB: "Flotas al tener miedo", respuestaSarcasticaA: "Discusión = espectáculo pirotécnico. Quemaduras accidentales. Peligroso.", respuestaSarcasticaB: "Pelicula de terror = levitación. Spider real = flotando. Miedo = superpoder raro." },
+    { id: 112, pregunta: "¿Prefieres que cada vez que entres a un ascensor suene música de elevador, o que cada vez que subas escaleras suene música épica?", opcionA: "Música de elevador en ascensor", opcionB: "Música épica en escaleras", respuestaSarcasticaA: "Ascensor = spa aburrido. Subir 10 pisos = tortura musical predecible.", respuestaSarcasticaB: "Escaleras = película de Hollywood. Subir a tu oficina = momento épico. Divertido." },
+    { id: 113, pregunta: "¿Prefieres tener que usar guantes todo el tiempo, o que nunca más puedas sentir temperatura?", opcionA: "Guantes siempre", opcionB: "No sentir temperatura", respuestaSarcasticaA: "Comer con guantes. Ducha con guantes. Todo difícil pero elegante.", respuestaSarcasticaB: "Quemadura sin dolor. Frío sin sentir. Peligro constante pero indoloro." },
+    { id: 114, pregunta: "¿Prefieres que cada vez que te cortes el pelo crezcan flores, o que cada vez que te afeites crezca musgo?", opcionA: "Flores al cortar pelo", opcionB: "Musgo al afeitarse", respuestaSarcasticaA: "Corte de pelo = jardín en cabeza. Avisitas abejas. Ecosistema capilar.", respuestaSarcasticaB: "Afeitarse = barba de musgo. Cara de jardín. Aspecto de hobbit." },
+    { id: 115, pregunta: "¿Prefieres que tu voz suene como robot, o que todos crean que eres un robot?", opcionA: "Voz de robot", opcionB: "Todos piensan que soy robot", respuestaSarcasticaA: "Llamadas = centro de atención. Pareces IA avanzada. Divertido pero extraño.", respuestaSarcasticaB: "Nadie te pide ayuda. Todos esperas que sigas instrucciones. Soledad tecnológica." },
+    { id: 116, pregunta: "¿Prefieres que cada vez que llores se formen pequeños charcos a tus pies, o que cada vez que te rías haga sol solo sobre ti?", opcionA: "Charcos al llorar", opcionB: "Sol personal al reír", respuestaSarcasticaA: "Drama = inundación local. Tetas = charcos emotivos. Limpieza necesaria.", respuestaSarcasticaB: "Felicitación = sol personal. Chiste = clima soleado. Eres un dios del buen humor." },
+    { id: 117, pregunta: "¿Prefieres tener que usar sombrero todo el tiempo, o que nunca más puedas usar sombrero?", opcionA: "Sombrero siempre", opcionB: "Nunca más sombrero", respuestaSarcasticaA: "Ducha con sombrero. Cama con sombrero. Elegancia constante pero incómodo.", respuestaSarcasticaB: "Sol directo. Lluvia en cara. Sin protección. Cabeza expuesta siempre." },
+    { id: 118, pregunta: "¿Prefieres que cada vez que mientas te crezcan más pestañas, o que cada vez que digas la verdad se te pongan rojas las orejas?", opcionA: "Más pestañas al mentir", opcionB: "Orejas rojas al decir verdad", respuestaSarcasticaA: "Mentiras frecuentes = pestañas espectaculares. Pestañas de modelo. Ventaja cosmética.", respuestaSarcasticaB: "Honestidad = orejas de tomate. Todos saben cuando dices verdad. Vergüenza visible." },
+    { id: 119, pregunta: "¿Prefieres que tu comida siempre tenga forma de estrella, o que tus bebidas siempre tengan colores psicodélicos?", opcionA: "Comida en forma de estrella", opcionB: "Bebidas psicodélicas", respuestaSarcasticaA: "Hamburguesa estrella. Pizza estrella. Todo espacial. Divertido pero raro.", respuestaSarcasticaB: "Agua arcoíris. Refresco neón. Beber = experiencia alucinante. Drogas visuales." },
+    { id: 120, pregunta: "¿Prefieres tener que caminar descalzo siempre, o que nunca más puedas sentir el tacto de tus pies?", opcionA: "Descalzo siempre", opcionB: "Sin tacto en pies", respuestaSarcasticaA: "Calle fría. Tierra caliente. Cristales. Dolor constante pero conexión terrenal.", respuestaSarcasticaB: "No sientes pisadas. Puedes caminar sobre fuego. Indoloro pero peligroso." },
+
+    // --- DILEMAS 121-160 ---
+    { id: 121, pregunta: "¿Prefieres que cada vez que te enamores te tiemble el corazón literalmente, o que cada vez que te enojes se te caliente la sangre?", opcionA: "Corazón tiembla al enamorarte", opcionB: "Sangre caliente al enojarte", respuestaSarcasticaA: "Amor = marcapasos loco. Doctor preocupado. Romance peligroso.", respuestaSarcasticaB: "Ira = caldera humana. Cara roja. Puedes hervir. Peligroso." },
+    { id: 122, pregunta: "¿Prefieres que tu pelo siempre esté estático, o que tu ropa siempre tenga electricidad estática?", opcionA: "Pelo estático", opcionB: "Ropa con electricidad", respuestaSarcasticaA: "Cabello de Einstein permanente. Shock constante. Imagen de científico loco.", respuestaSarcasticaB: "Toques = descargas. Abrazos = shock. Eres peligroso pero divertido." },
+    { id: 123, pregunta: "¿Prefieres que cada vez que mientas te crezcan más dedos, o que cada vez que digas la verdad se te pongan verdes las uñas?", opcionA: "Más dedos al mentir", opcionB: "Uñas verdes al decir verdad", respuestaSarcasticaA: "Mentiroso frecuente = manos de araña. 12 dedos. Extraño pero útil.", respuestaSarcasticaB: "Honestidad = uñas de Hulk. Verde brillante. Todos saben cuando eres sincero." },
+    { id: 124, pregunta: "¿Prefieres tener que usar zapatos con luces, o que tu ropa brille en la oscuridad?", opcionA: "Zapatos con luces", opcionB: "Ropa que brilla en oscuridad", respuestaSarcasticaA: "Cada paso = fiesta. Noche = discoteca móvil. Divertido pero llamativo.", respuestaSarcasticaB: "Cine = espectáculo luminoso. Noche = humano glow. Útil pero extraño." },
+    { id: 125, pregunta: "¿Prefieres que cada vez que tosas suene un estornudo grabado, o que cada vez que estornudes suene una tos?", opcionA: "Toser suena como estornudo", opcionB: "Estornudar suena como tos", respuestaSarcasticaA: "Resfriado confuso. Tos = ACHÚ. Estornudo = ahem. Médicos desconcertados.", respuestaSarcasticaB: "Alergias invertidas. Estornudo = tos. Tos = ACHÚ. Todos se ríen." },
+    { id: 126, pregunta: "¿Prefieres que tu comida siempre tenga picante, o que siempre tenga dulce?", opcionA: "Comida siempre picante", opcionB: "Comida siempre dulce", respuestaSarcasticaA: "Helado picante. Leche picante. Todo arde. Boca en fuego permanente.", respuestaSarcasticaB: "Carne dulce. Verduras dulces. Todo es postre. Diabetes garantizada." },
+    { id: 127, pregunta: "¿Prefieres que cada vez que te rías se te arrugue la nariz, o que cada vez que llores se te frunza el ceño?", opcionA: "Nariz arrugada al reír", opcionB: "Ceño fruncido al llorar", respuestaSarcasticaA: "Felicidad = cara de conejo. Risa adorable pero ridícula. Todos te imitan.", respuestaSarcasticaB: "Tristeza = cara enojada. Pareces furioso cuando estás triste. Confusión emocional." },
+    { id: 128, pregunta: "¿Prefieres tener que usar reloj en ambos tobillos, o que nunca más puedas usar reloj?", opcionA: "Reloj en ambos tobillos", opcionB: "Nunca más reloj", respuestaSarcasticaA: "Pies puntuales. Moda tobillera. Extraño pero funcional. Todos te miran.", respuestaSarcasticaB: "Sin tiempo. Llegas tarde siempre. Vida sin horarios. Caos temporal." },
+    { id: 129, pregunta: "¿Prefieres que cada vez que mientas te tiemble una pierna, o que cada vez que digas la verdad te tiemble una mano?", opcionA: "Pierna tiembla al mentir", opcionB: "Mano tiembla al decir verdad", respuestaSarcasticaA: "Mentira = tambaleo. Pareces borracho. Inestabilidad delictiva.", respuestaSarcasticaB: "Verdad = mano temblorosa. Contrato difícil. Honestidad nerviosa." },
+    { id: 130, pregunta: "¿Prefieres que tu aliento siempre huela a café, o que tu transpiración siempre huela a vainilla?", opcionA: "Aliento de café", opcionB: "Transpiración de vainilla", respuestaSarcasticaA: "Mañana = café duplicado. Besos energéticos. Aromatico pero intenso.", respuestaSarcasticaB: "Gimnasio = pastelería. Atraes moscas. Dulce pero pegajoso." },
+    { id: 131, pregunta: "¿Prefieres que cada vez que entres a un lugar aparezca un arcoíris, o que cada vez que salgas haga un pequeño viento?", opcionA: "Arcoíris al entrar", opcionB: "Viento al salir", respuestaSarcasticaA: "Entrar a baño = arcoíris mágico. Oficina = espectáculo cromático. Fantasía real.", respuestaSarcasticaB: "Salir = brisa personal. Cabello volador. Siempre elegante pero desordenado." },
+    { id: 132, pregunta: "¿Prefieres tener que usar bufanda en verano, o que nunca más puedas usar bufanda?", opcionA: "Bufanda en verano", opcionB: "Nunca más bufanda", respuestaSarcasticaA: "Julio con lana. Sudoración extrema. Elegancia térmica suicida.", respuestaSarcasticaB: "Invierno sin protección. Cuello frío. Moda incompleta. Frío garantizado." },
+    { id: 133, pregunta: "¿Prefieres que cada vez que mientas se te pongan rojas las mejillas, o que cada vez que digas la verdad se te pongan verdes?", opcionA: "Mejillas rojas al mentir", opcionB: "Verde al decir verdad", respuestaSarcasticaA: "Mentira = tomate humano. Detección fácil. Vergüenza visible.", respuestaSarcasticaB: "Verdad = Hulk. Honestidad = color alienígena. Todos saben cuando eres sincero." },
+    { id: 134, pregunta: "¿Prefieres que tu comida siempre esté sobre cocida, o que siempre esté cruda?", opcionA: "Comida sobre cocida", opcionB: "Comida cruda", respuestaSarcasticaA: "Carne quemada. Pasta dura. Todo seco. Cocina destructiva.", respuestaSarcasticaB: "Carne cruda. Pescado crudo. Riesgo bacteriano. Dieta peligrosa." },
+    { id: 135, pregunta: "¿Prefieres que cada vez que te rías haga un sonido de campana, o que cada vez que llores haga un sonido de violín?", opcionA: "Campana al reír", opcionB: "Violín al llorar", respuestaSarcasticaA: "Felicidad = tintineo constante. Iglesia móvil. Alegría sonora.", respuestaSarcasticaB: "Tristeza = melodía trágica. Película de vida. Drama musical." },
+    { id: 136, pregunta: "¿Prefieres tener que usar guantes de boxeo, o que nunca más puedas usar guantes?", opcionA: "Guantes de boxeo siempre", opcionB: "Nunca más guantes", respuestaSarcasticaA: "Escribir difícil. Comer difícil. Todo difícil. Manos enormes.", respuestaSarcasticaB: "Frío constante. Manos desnudas. Trabajo difícil. Sin protección." },
+    { id: 137, pregunta: "¿Prefieres que cada vez que mientas te crezcan más cejas, o que cada vez que digas la verdad se te pongan amarillos los ojos?", opcionA: "Más cejas al mentir", opcionB: "Ojos amarillos al decir verdad", respuestaSarcasticaA: "Mentiroso = cejas de Groucho. Cara peluda. Expresión exagerada.", respuestaSarcasticaB: "Honestidad = ojos de gato. Amarillo brillante. Verdad felina." },
+    { id: 138, pregunta: "¿Prefieres que tu bebida siempre tenga gas, o que nunca más pueda tomar bebidas con gas?", opcionA: "Bebidas siempre con gas", opcionB: "Nunca más bebidas con gas", respuestaSarcasticaA: "Leche gaseosa. Agua gaseosa. Todo burbujea. Estómago revuelto.", respuestaSarcasticaB: "Refresco plano. Cerveza sin gas. Agua sin gas. Bebidas aburridas." },
+    { id: 139, pregunta: "¿Prefieres que cada vez que te rías se te caiga un lápiz, o que cada vez que llores se te caiga un pañuelo?", opcionA: "Lápiz cae al reír", opcionB: "Pañuelo cae al llorar", respuestaSarcasticaA: "Chiste gracioso = lápiz mágico. Magia involuntaria. Diversión con objetos.", respuestaSarcasticaB: "Drama = pañuelo fantasma. Lágrimas con accesorios. Teatralidad automática." },
+    { id: 140, pregunta: "¿Prefieres tener que usar sombrero de copa, o que nunca más puedas usar sombrero?", opcionA: "Sombrero de copa siempre", opcionB: "Nunca más sombrero", respuestaSarcasticaA: "Ducha con sombrero. Elegancia extrema. Magician permanente.", respuestaSarcasticaB: "Sol directo. Lluvia en cara. Cabeza expuesta. Protección cero." },
+    { id: 141, pregunta: "¿Prefieres que cada vez que mientas te tiemble la barbilla, o que cada vez que digas la verdad se te muevan las orejas?", opcionA: "Barbilla tiembla al mentir", opcionB: "Orejas se mueven al decir verdad", respuestaSarcasticaA: "Mentira = frío invernal. Temblor delator. Detección fácil.", respuestaSarcasticaB: "Verdad = orejas animadas. Honestidad expresiva. Comunicación corporal." },
+    { id: 142, pregunta: "¿Prefieres que tu comida siempre tenga forma de corazón, o que tus bebidas siempre tengan forma de estrella?", opcionA: "Comida en forma de corazón", opcionB: "Bebidas en forma de estrella", respuestaSarcasticaA: "Hamburguesa con forma de corazón. Amor gastronómico. Romántico pero raro.", respuestaSarcasticaB: "Vaso estrellado. Bebidas cósmicas. Espacio líquido. Beber astronauta." },
+    { id: 143, pregunta: "¿Prefieres que cada vez que te rías haga un sonido de aplausos, o que cada vez que llores haga un sonido de susurros?", opcionA: "Aplausos al reír", opcionB: "Susurros al llorar", respuestaSarcasticaA: "Felicidad = ovación personal. Alegría celebrada. Ego inflado.", respuestaSarcasticaB: "Tristeza = secretos audibles. Lágrimas susurrantes. Misterio emotivo." },
+    { id: 144, pregunta: "¿Prefieres tener que usar corbata de moño, o que nunca más puedas usar corbata?", opcionA: "Corbata de moño siempre", opcionB: "Nunca más corbata", respuestaSarcasticaA: "Elegancia de pinguino. Fiesta constante. Sofisticación forzada.", respuestaSarcasticaB: "Cuello desnudo. Formalidad incompleta. Vestimenta casual permanente." },
+    { id: 145, pregunta: "¿Prefieres que cada vez que mientas se te pongan rojas las puntas de los dedos, o que cada vez que digas la verdad se te pongan azules las uñas?", opcionA: "Puntas rojas al mentir", opcionB: "Uñas azules al decir verdad", respuestaSarcasticaA: "Mentira = dedos pintados. Detección cromática. Manos delatoras.", respuestaSarcasticaB: "Honestidad = uñas azules. Verdad azulada. Manos de Smurf sincero." },
+    { id: 146, pregunta: "¿Prefieres que tu comida siempre tenga sabor a metal, o que siempre tenga sabor a plástico?", opcionA: "Sabor a metal", opcionB: "Sabor a plástico", respuestaSarcasticaA: "Todo sabe a cuchara. Metálico permanente. Boca industrial.", respuestaSarcasticaB: "Todo sabe a envoltorio. Sabor sintético. Boca artificial." },
+    { id: 147, pregunta: "¿Prefieres que cada vez que te rías se te ilumine la cara, o que cada vez que llores se te oscurezca la cara?", opcionA: "Cara ilumina al reír", opcionB: "Cara oscurece al llorar", respuestaSarcasticaA: "Felicidad = linterna humana. Alegría luminosa. Cara brillante.", respuestaSarcasticaB: "Tristeza = sombra personal. Lágrimas oscuras. Cara misteriosa." },
+    { id: 148, pregunta: "¿Prefieres tener que usar pendientes enormes, o que nunca más puedas usar pendientes?", opcionA: "Pendientes enormes siempre", opcionB: "Nunca más pendientes", respuestaSarcasticaA: "Orejas pesadas. Elegancia exagerada. Accesorios gigantes.", respuestaSarcasticaB: "Orejas desnudas. Sin adornos. Simplicidad forzada. Aburrimiento." },
+    { id: 149, pregunta: "¿Prefieres que cada vez que mientas te crezcan más vellos en la cara, o que cada vez que digas la verdad se te pongan rojas las puntas del pelo?", opcionA: "Más vellos al mentir", opcionB: "Puntas rojas al decir verdad", respuestaSarcasticaA: "Mentiroso = cara peluda. Bigote espontáneo. Detección fácil.", respuestaSarcasticaB: "Honestidad = pelo rojo. Verdad colorida. Cabeza de fuego sincero." },
+    { id: 150, pregunta: "¿Prefieres que tu bebida siempre esté caliente, o que nunca más puedas tomar bebidas calientes?", opcionA: "Bebidas siempre calientes", opcionB: "Nunca más bebidas calientes", respuestaSarcasticaA: "Agua caliente. Refresco caliente. Cerveza caliente. Boca quemada.", respuestaSarcasticaB: "Café frío. Té frío. Chocolate frío. Bebidas decepcionantes." },
+    { id: 151, pregunta: "¿Prefieres que cada vez que te ría aparezcan pequeñas estrellas, o que cada vez que llores aparezcan pequeñas gotas de cristal?", opcionA: "Estrellas al reír", opcionB: "Cristal al llorar", respuestaSarcasticaA: "Felicidad = cielo en miniatura. Alegría estrellada. Magia brillante.", respuestaSarcasticaB: "Tristeza = joyas líquidas. Lágrimas preciosas. Drama valioso." },
+    { id: 152, pregunta: "¿Prefieres tener que usar pinta labios rojo, o que nunca más puedas usar pinta labios?", opcionA: "Pinta labios rojo siempre", opcionB: "Nunca más pinta labios", respuestaSarcasticaA: "Labios rojos intensos. Besos marcados. Boca de vampiro.", respuestaSarcasticaB: "Labios naturales. Sin color. Boca pálida. Simplicidad forzada." },
+    { id: 153, pregunta: "¿Prefieres que cada vez que mientas se te pongan verdes los ojos, o que cada vez que digas la verdad se te pongan amarillos los dientes?", opcionA: "Ojos verdes al mentir", opcionB: "Dientes amarillos al decir verdad", respuestaSarcasticaA: "Mentira = ojos de gato. Detección felina. Verdad delatora.", respuestaSarcasticaB: "Honestidad = dientes amarillos. Sonrisa sucia. Verdad antiestética." },
+    { id: 154, pregunta: "¿Prefieres que tu comida siempre tenga sabor a humo, o que siempre tenga sabor a tierra?", opcionA: "Sabor a humo", opcionB: "Sabor a tierra", respuestaSarcasticaA: "Todo sabe a barbacoa. Comida ahumada. Boca de chimenea.", respuestaSarcasticaB: "Todo sabe a jardín. Comida terrosa. Boca de jardinero." },
+    { id: 155, pregunta: "¿Prefieres que cada vez que te ría haga un sonido de campanas de iglesia, o que cada vez que llores haga un sonido de tormenta?", opcionA: "Campanas al reír", opcionB: "Tormenta al llorar", respuestaSarcasticaA: "Felicidad = boda constante. Alegría celestial. Religión divertida.", respuestaSarcasticaB: "Tristeza = apocalipsis personal. Lágrimas tormentosas. Drama catastrófico." },
+    { id: 156, pregunta: "¿Prefieres tener que usar collar pesado, o que nunca más puedas usar collar?", opcionA: "Collar pesado siempre", opcionB: "Nunca más collar", respuestaSarcasticaA: "Cuello cargado. Elegancia pesada. Dolor constante pero elegante.", respuestaSarcasticaB: "Cuello desnudo. Sin adornos. Simplicidad obligatoria. Aburrimiento." },
+    { id: 157, pregunta: "¿Prefieres que cada vez que mientas te crezcan más pestañas, o que cada vez que digas la verdad se te pongan moradas las uñas?", opcionA: "Más pestañas al mentir", opcionB: "Uñas moradas al decir verdad", respuestaSarcasticaA: "Mentiroso = pestañas de muñeca. Ojos exagerados. Detección cosmética.", respuestaSarcasticaB: "Honestidad = uñas de uva. Verdad púrpura. Manos de enólogo sincero." },
+    { id: 158, pregunta: "¿Prefieres que tu comida siempre esté demasiado salada, o que siempre esté demasiado dulce?", opcionA: "Demasiado salada", opcionB: "Demasiado dulce", respuestaSarcasticaA: "Hipertensión garantizada. Sed permanente. Boca de mar.", respuestaSarcasticaB: "Azúcar en todo. Diabetes asegurada. Boca de caramelo." },
+    { id: 159, pregunta: "¿Prefieres que cada vez que te ría se te caigan plumas, o que cada vez que llores se te caigan escamas?", opcionA: "Plumas al reír", opcionB: "Escamas al llorar", respuestaSarcasticaA: "Felicidad = ave humana. Alegría emplumada. Caos de plumas.", respuestaSarcasticaB: "Tristeza = pez humano. Lágrimas escamosas. Drama acuático." },
+    { id: 160, pregunta: "¿Prefieres tener que usar antifaz, o que nunca más puedas ver la cara de la gente?", opcionA: "Antifaz siempre", opcionB: "Nunca ver caras ajenas", respuestaSarcasticaA: "Misterio constante. Cara oculta. Elegancia enigmática. Zorro permanente.", respuestaSarcasticaB: "Mundo sin caras. Todos sin identidad. Confusión social. Humanidad anónima." }
 ];
 
 // ============================================
@@ -288,6 +374,174 @@ let totalDecisions = 0;
 let shownMilestones = [];
 let timerInterval = null;
 let timerCountdownInterval = null;
+let revealTimeout = null;
+
+// ============================================
+// SISTEMA DE NIVELES Y LOGROS
+// ============================================
+const gameLevels = {
+    1: { name: "Novato", minDecisions: 0, color: "#95a5a6", icon: "🌱" },
+    2: { name: "Aprendiz", minDecisions: 5, color: "#3498db", icon: "📚" },
+    3: { name: "Decisor", minDecisions: 15, color: "#9b59b6", icon: "⚖️" },
+    4: { name: "Estratega", minDecisions: 30, color: "#e74c3c", icon: "🎯" },
+    5: { name: "Maestro", minDecisions: 50, color: "#f39c12", icon: "👑" },
+    6: { name: "Legendario", minDecisions: 75, color: "#e67e22", icon: "🔥" },
+    7: { name: "Mítico", minDecisions: 100, color: "#16a085", icon: "⚡" },
+    8: { name: "Divino", minDecisions: 150, color: "#c0392b", icon: "🌟" },
+    9: { name: "Omnisciente", minDecisions: 200, color: "#8e44ad", icon: "👁️" },
+    10: { name: "Dios de los Dilemas", minDecisions: 300, color: "#2c3e50", icon: "👑" }
+};
+
+const achievements = {
+    firstChoice: { name: "Primer Paso", description: "Toma tu primera decisión", icon: "👣", unlocked: false },
+    streak5: { name: "En Racha", description: "Alcanza 5 decisiones seguidas", icon: "🔥", unlocked: false },
+    streak10: { name: "Imparable", description: "Alcanza 10 decisiones seguidas", icon: "⚡", unlocked: false },
+    allDilemmas: { name: "Explorador", description: "Responde todos los dilemas disponibles", icon: "🗺️", unlocked: false },
+    speedDemon: { name: "Demonio de Velocidad", description: "Responde 10 dilemas en menos de 2 segundos cada uno", icon: "💨", unlocked: false },
+    nightOwl: { name: "Búho Nocturno", description: "Juega después de medianoche", icon: "🦉", unlocked: false },
+    earlyBird: { name: "Madrugador", description: "Juega antes de las 6 AM", icon: "🐓", unlocked: false },
+    philosopher: { name: "Filósofo", description: "Alcanza el arquetipo 'El Analista'", icon: "🧠", unlocked: false },
+    chaosLord: { name: "Señor del Caos", description: "Alcanza el arquetipo 'El Caótico Inteligente'", icon: "😈", unlocked: false },
+    viral: { name: "Viral", description: "Comparte tu resultado 5 veces", icon: "📱", unlocked: false }
+};
+
+let gameStats = {
+    level: 1,
+    experience: 0,
+    totalPlayTime: 0,
+    fastestDecision: Infinity,
+    slowestDecision: 0,
+    shareCount: 0,
+    achievementsUnlocked: 0,
+    lastPlayTime: null,
+    speedDecisions: 0
+};
+
+// ============================================
+// BASE DE DATOS LOCAL
+// ============================================
+class DatabaseManager {
+    constructor() {
+        this.dbName = 'dilemasViralesDB';
+        this.version = 1;
+        this.db = null;
+    }
+
+    async init() {
+        return new Promise((resolve, reject) => {
+            const request = indexedDB.open(this.dbName, this.version);
+            
+            request.onerror = () => reject(request.error);
+            request.onsuccess = () => {
+                this.db = request.result;
+                resolve();
+            };
+            
+            request.onupgradeneeded = (event) => {
+                const db = event.target.result;
+                
+                // Crear store para respuestas
+                if (!db.objectStoreNames.contains('responses')) {
+                    const responsesStore = db.createObjectStore('responses', { keyPath: 'id', autoIncrement: true });
+                    responsesStore.createIndex('dilemmaId', 'dilemmaId', { unique: false });
+                    responsesStore.createIndex('choice', 'choice', { unique: false });
+                    responsesStore.createIndex('timestamp', 'timestamp', { unique: false });
+                }
+                
+                // Crear store para estadísticas globales
+                if (!db.objectStoreNames.contains('statistics')) {
+                    db.createObjectStore('statistics', { keyPath: 'dilemmaId' });
+                }
+            };
+        });
+    }
+
+    async saveResponse(dilemmaId, choice, isTimeout = false) {
+        return new Promise((resolve, reject) => {
+            const transaction = this.db.transaction(['responses', 'statistics'], 'readwrite');
+            
+            transaction.onerror = () => reject(transaction.error);
+            transaction.oncomplete = () => resolve();
+
+            // Guardar respuesta individual
+            const responsesStore = transaction.objectStore('responses');
+            responsesStore.add({
+                dilemmaId,
+                choice,
+                isTimeout,
+                timestamp: Date.now()
+            });
+
+            // Leer estadísticas actuales y actualizar en la misma transacción
+            const statsStore = transaction.objectStore('statistics');
+            const getReq = statsStore.get(dilemmaId);
+
+            getReq.onsuccess = () => {
+                const stats = getReq.result || {
+                    dilemmaId,
+                    A: 0,
+                    B: 0,
+                    timeouts: 0,
+                    total: 0
+                };
+
+                if (isTimeout) {
+                    stats.timeouts++;
+                } else {
+                    stats[choice]++;
+                }
+                stats.total++;
+
+                statsStore.put(stats);
+            };
+        });
+    }
+
+    async getStats(dilemmaId) {
+        return new Promise((resolve) => {
+            const transaction = this.db.transaction(['statistics'], 'readonly');
+            const store = transaction.objectStore('statistics');
+            const request = store.get(dilemmaId);
+            
+            request.onsuccess = () => {
+                const stats = request.result || {
+                    dilemmaId,
+                    A: 0,
+                    B: 0,
+                    timeouts: 0,
+                    total: 0
+                };
+                resolve(stats);
+            };
+        });
+    }
+
+    async getGlobalStats() {
+        return new Promise((resolve) => {
+            const transaction = this.db.transaction(['statistics'], 'readonly');
+            const store = transaction.objectStore('statistics');
+            const request = store.getAll();
+            
+            request.onsuccess = () => {
+                const allStats = request.result;
+                const global = {
+                    totalResponses: 0,
+                    totalTimeouts: 0,
+                    averageResponseTime: 0
+                };
+                
+                allStats.forEach(stat => {
+                    global.totalResponses += stat.total;
+                    global.totalTimeouts += stat.timeouts;
+                });
+                
+                resolve(global);
+            };
+        });
+    }
+}
+
+const dbManager = new DatabaseManager();
 
 // Perfil psicológico
 const dilemmaTraits = {
@@ -466,8 +720,11 @@ const elements = {
     pctEgo: document.getElementById('pctEgo'),
     pctLogica: document.getElementById('pctLogica'),
     pctEmocional: document.getElementById('pctEmocional'),
-    shareBtn: document.getElementById('shareBtn'),
     compareBtn: document.getElementById('compareBtn'),
+    shareTwitterBtn: document.getElementById('shareTwitterBtn'),
+    shareWhatsAppBtn: document.getElementById('shareWhatsAppBtn'),
+    shareFacebookBtn: document.getElementById('shareFacebookBtn'),
+    shareCopyBtn: document.getElementById('shareCopyBtn'),
     downloadBtn: document.getElementById('downloadBtn'),
     continueBtn: document.getElementById('continueBtn'),
     toast: document.getElementById('toast'),
@@ -483,16 +740,39 @@ const elements = {
 // ============================================
 // FUNCIONES DEL JUEGO
 // ============================================
-function init() {
+async function init() {
+    // Cargar estadísticas guardadas
+    loadGameStats();
+    
+    // Inicializar base de datos primero
+    try {
+        await dbManager.init();
+        console.log('Base de datos inicializada correctamente');
+    } catch (error) {
+        console.error('Error inicializando base de datos:', error);
+        // Continuar sin base de datos (fallback a modo demo)
+    }
+    
     initParticles();
     elements.startBtn.addEventListener('click', startGame);
     elements.optionA.addEventListener('click', () => handleChoice('A'));
     elements.optionB.addEventListener('click', () => handleChoice('B'));
     elements.nextBtn.addEventListener('click', nextDilemma);
-    elements.shareBtn?.addEventListener('click', shareResult);
     elements.compareBtn?.addEventListener('click', compareWithFriends);
+    
+    // Event listeners for new social media share buttons
+    elements.shareTwitterBtn?.addEventListener('click', shareOnTwitter);
+    elements.shareWhatsAppBtn?.addEventListener('click', shareOnWhatsApp);
+    elements.shareFacebookBtn?.addEventListener('click', shareOnFacebook);
+    elements.shareCopyBtn?.addEventListener('click', copyLinkToClipboard);
     elements.downloadBtn?.addEventListener('click', downloadResultImage);
     elements.continueBtn?.addEventListener('click', continueAfterPsych);
+    
+    // Actualizar UI con nivel actual
+    updateUI();
+    
+    // Verificar si hay resultado en URL para compartir
+    checkUrlForResult();
 }
 
 function startGame() {
@@ -511,20 +791,17 @@ function hideAllScreens() {
     Object.values(screens).forEach(s => s.classList.add('hidden'));
 }
 
-let revealTimeout = null;
 
 function loadRandomDilemma() {
-    if (usedDilemmas.length >= dilemmas.length) {
-        const last = usedDilemmas[usedDilemmas.length - 1];
-        usedDilemmas = last ? [last] : [];
+    const availableDilemmas = dilemmas.filter(d => !usedDilemmas.includes(d.id));
+    if (availableDilemmas.length === 0) {
+        usedDilemmas = [];
+        return loadRandomDilemma();
     }
-    const available = dilemmas.filter(d => !usedDilemmas.includes(d.id));
-    const rand = Math.floor(Math.random() * available.length);
-    currentDilemma = available[rand];
+    currentDilemma = availableDilemmas[Math.floor(Math.random() * availableDilemmas.length)];
+    currentDilemma.startTime = Date.now(); // Para medir tiempo de decisión
     usedDilemmas.push(currentDilemma.id);
     displayDilemma();
-    // No iniciar timer todavía — primero revelamos la pregunta sola
-    startRevealSequence();
 }
 
 function displayDilemma() {
@@ -543,6 +820,8 @@ function displayDilemma() {
     elements.timerBar.classList.remove('active');
     elements.timerBar.style.transform = 'scaleX(1)';
     if (elements.timerCountdown) elements.timerCountdown.textContent = '5';
+    // Iniciar secuencia de revelación
+    startRevealSequence();
 }
 
 function startRevealSequence() {
@@ -591,7 +870,9 @@ function handleTimeout() {
     }
 }
 
-function handleChoice(choice, isTimeout = false) {
+async function handleChoice(choice, isTimeout = false) {
+    const decisionStartTime = Date.now() - (currentDilemma?.startTime || Date.now());
+    
     clearTimeout(timerInterval);
     clearInterval(timerCountdownInterval);
     clearTimeout(revealTimeout); // Por si acaso
@@ -604,7 +885,16 @@ function handleChoice(choice, isTimeout = false) {
     totalDecisions++;
     updateUI();
     
-    if (currentDilemma) updatePsychologicalProfile(currentDilemma.id, choice);
+    if (currentDilemma) {
+        updatePsychologicalProfile(currentDilemma.id, choice);
+        // Guardar respuesta en la base de datos
+        await dbManager.saveResponse(currentDilemma.id, choice, isTimeout);
+        
+        // Actualizar estadísticas y niveles
+        updateGameStats(decisionStartTime);
+        updateLevel();
+        checkAchievements();
+    }
     
     const selectedBtn = choice === 'A' ? elements.optionA : elements.optionB;
     const unselectedBtn = choice === 'A' ? elements.optionB : elements.optionA;
@@ -650,15 +940,24 @@ function getRandomComment() {
     return { texto: list[Math.floor(Math.random() * list.length)], categoria: cat };
 }
 
-function showResult(choice, isTimeout) {
+async function showResult(choice, isTimeout) {
     hideAllScreens();
     screens.result.classList.remove('hidden');
     
-    const percentage = Math.floor(Math.random() * 45) + 40;
+    // Obtener estadísticas reales de la base de datos
+    const stats = await dbManager.getStats(currentDilemma.id);
+    let percentage;
+    
+    if (isTimeout) {
+        percentage = Math.round((stats.timeouts / stats.total) * 100) || 15;
+        elements.resultText.textContent = `⏰ Se acabó el tiempo. El ${percentage}% también se queda sin tiempo.`;
+    } else {
+        const choiceCount = stats[choice];
+        percentage = Math.round((choiceCount / stats.total) * 100) || 50;
+        elements.resultText.textContent = `${percentage}% de personas eligió lo mismo`;
+    }
+    
     elements.percentageDisplay.textContent = `${percentage}%`;
-    elements.resultText.textContent = isTimeout
-        ? `⏰ Se acabó el tiempo. El azar eligió por ti.`
-        : `${percentage}% de personas eligió lo mismo`;
     
     const comentario = getRandomComment();
     elements.sarcasticResponse.textContent = comentario.texto;
@@ -786,6 +1085,9 @@ function showPsychResult() {
         emoji: archetype.emoji
     };
     
+    // Actualizar URL para compartir
+    updateShareUrl();
+    
     // Generar imagen automáticamente para tenerla lista
     generateResultImage();
 }
@@ -800,31 +1102,52 @@ function generateResultImage() {
     const w = canvas.width;
     const h = canvas.height;
     
-    // Fondo oscuro degradado
+    // Fondo oscuro degradado más dramático
     const grad = ctx.createLinearGradient(0, 0, 0, h);
-    grad.addColorStop(0, '#080604');
-    grad.addColorStop(1, '#141008');
+    grad.addColorStop(0, '#0a0806');
+    grad.addColorStop(0.5, '#141008');
+    grad.addColorStop(1, '#1a150c');
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, w, h);
     
-    // Línea de acento superior
+    // Efecto de ruido sutil
+    for (let i = 0; i < 100; i++) {
+        ctx.fillStyle = `rgba(255, 255, 255, ${Math.random() * 0.02})`;
+        ctx.fillRect(Math.random() * w, Math.random() * h, 2, 2);
+    }
+    
+    // Líneas de acento superior e inferior
     ctx.fillStyle = '#ff6a00';
-    ctx.fillRect(0, 0, w, 8);
+    ctx.fillRect(0, 0, w, 12);
+    ctx.fillRect(0, h-12, w, 12);
     
-    // Título principal
+    // Título principal con sombra
+    ctx.shadowColor = 'rgba(255, 106, 0, 0.5)';
+    ctx.shadowBlur = 20;
     ctx.fillStyle = '#f5ede0';
-    ctx.font = 'bold 80px "Bebas Neue", sans-serif';
+    ctx.font = 'bold 72px "Bebas Neue", sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText('DILEMAS VIRALES', w/2, 140);
+    ctx.fillText('🔥 DILEMAS VIRALES', w/2, 120);
+    ctx.shadowBlur = 0;
     
-    // Emoji grande
-    ctx.font = '200px serif';
-    ctx.fillText(result.emoji, w/2, 380);
+    // Subtítulo viral
+    ctx.fillStyle = '#ff6a00';
+    ctx.font = '36px "Rajdhani", sans-serif';
+    ctx.fillText('¿QUIÉN ERES REALMENTE?', w/2, 160);
     
-    // "ERES:"
+    // Emoji grande con efecto
+    ctx.font = '180px serif';
+    ctx.fillText(result.emoji, w/2, 350);
+    
+    // "RESULTADO EXCLUSIVO"
+    ctx.fillStyle = '#ffd60a';
+    ctx.font = 'bold 32px "Rajdhani", sans-serif';
+    ctx.fillText('RESULTADO EXCLUSIVO', w/2, 420);
+    
+    // "ERES:" más grande
     ctx.fillStyle = '#7a6a55';
-    ctx.font = '40px "Rajdhani", sans-serif';
-    ctx.fillText('ERES:', w/2, 440);
+    ctx.font = 'bold 48px "Rajdhani", sans-serif';
+    ctx.fillText('ERES:', w/2, 480);
     
     // Título del arquetipo
     ctx.fillStyle = '#ff6a00';
@@ -875,22 +1198,62 @@ function generateResultImage() {
     ctx.font = '40px "Rajdhani", sans-serif';
     ctx.fillText('¿Quién más es como tú?', w/2, h - 120);
     
-    // URL
+    // URL con código QR simulado
     ctx.fillStyle = '#ff6a00';
-    ctx.font = 'bold 52px "Share Tech Mono", monospace';
-    ctx.fillText('decisiones-locas.com', w/2, h - 55);
+    ctx.font = 'bold 48px "Share Tech Mono", monospace';
+    const url = window.location.origin + window.location.pathname;
+    ctx.fillText(url, w/2, h - 60);
+    
+    // Código QR simulado (decorativo) - más grande y visible
+    const qrSize = 120;
+    const qrX = w - qrSize - 40;
+    const qrY = h - qrSize - 40;
+    
+    // Fondo del QR
+    ctx.fillStyle = '#f5ede0';
+    ctx.fillRect(qrX, qrY, qrSize, qrSize);
+    
+    // Patrón QR simulado
+    ctx.fillStyle = '#080604';
+    const cellSize = 8;
+    for (let i = 0; i < 15; i++) {
+        for (let j = 0; j < 15; j++) {
+            if (Math.random() > 0.5) {
+                ctx.fillRect(qrX + i * cellSize, qrY + j * cellSize, cellSize, cellSize);
+            }
+        }
+    }
+    
+    // Texto "ESCANEA" sobre el QR
+    ctx.fillStyle = '#ff6a00';
+    ctx.font = 'bold 16px "Rajdhani", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('ESCANEA', qrX + qrSize/2, qrY - 10);
+    
+    // Footer viral
+    ctx.fillStyle = '#7a6a55';
+    ctx.font = '28px "Rajdhani", sans-serif';
+    ctx.fillText('DESCUBRE TU ARQUETIPO →', w/2, h - 160);
+    ctx.fillText(`?r=${window._currentResult.dominant}`, w/2, h - 25);
 }
 
 function shareResult() {
     const result = window._currentResult;
     if (!result) return;
     
+    // Actualizar contador de compartidos
+    gameStats.shareCount++;
+    saveGameStats();
+    checkAchievements();
+    
+    const levelInfo = gameLevels[gameStats.level];
     const text = `🔥 DILEMAS VIRALES\n\n` +
         `¡Soy ${result.archetype} ${result.emoji}!\n` +
-        `Solo el ${result.rareza}% obtiene este resultado.\n\n` +
+        `Solo el ${result.rareza}% obtiene este resultado.\n` +
+        `Nivel ${gameStats.level} ${levelInfo.icon} ${levelInfo.name}\n\n` +
         `🔴 Caos: ${result.pcts.caos}% | 🟣 Ego: ${result.pcts.ego}%\n` +
         `🔵 Lógica: ${result.pcts.logica}% | 🟢 Emoción: ${result.pcts.emocional}%\n\n` +
-        `¿Y tú? 👉 decisiones-locas.com`;
+        `¿Y tú? 👉 ${window.location.origin}${window.location.pathname}`;
     
     // Intentar compartir imagen si existe
     const canvas = elements.shareCanvas;
@@ -921,6 +1284,117 @@ function compareWithFriends() {
         elements.downloadBtn.classList.remove('hidden');
     }
     shareResult();
+}
+
+// ---- FUNCIONES DE COMPARTIR ESPECÍFICAS POR PLATAFORMA ----
+function shareOnTwitter() {
+    const result = window._currentResult;
+    if (!result) return;
+    
+    const text = `🔥 Soy ${result.archetype} ${result.emoji} en Dilemas Virales\n\nSolo el ${result.rareza}% obtiene este resultado\n\n¿Y tú? ¿Te atreves a jugar? 👇\n\n${window.location.origin}${window.location.pathname}?ref=${generateShareId()}`;
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+    
+    // Track analytics
+    gtag('event', 'share', {
+        'method': 'twitter',
+        'archetype': result.archetype,
+        'rarity': result.rareza
+    });
+    
+    window.open(twitterUrl, '_blank', 'width=550,height=420');
+}
+
+function shareOnWhatsApp() {
+    const result = window._currentResult;
+    if (!result) return;
+    
+    const text = `🔥 *Soy ${result.archetype} ${result.emoji}* en Dilemas Virales\n\nSolo el ${result.rareza}% obtiene este resultado\n\n¿Y tú? ¿Te atreves a descubrir tu arquetipo?\n\n${window.location.origin}${window.location.pathname}?ref=${generateShareId()}`;
+    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(text)}`;
+    
+    // Track analytics
+    gtag('event', 'share', {
+        'method': 'whatsapp',
+        'archetype': result.archetype,
+        'rarity': result.rareza
+    });
+    
+    window.open(whatsappUrl, '_blank');
+}
+
+function shareOnFacebook() {
+    const result = window._currentResult;
+    if (!result) return;
+    
+    const shareUrl = `${window.location.origin}${window.location.pathname}?ref=${generateShareId()}`;
+    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(`Soy ${result.archetype} en Dilemas Virales - Solo el ${result.rareza}% obtiene este resultado`)}`;
+    
+    // Track analytics
+    gtag('event', 'share', {
+        'method': 'facebook',
+        'archetype': result.archetype,
+        'rarity': result.rareza
+    });
+    
+    window.open(facebookUrl, '_blank', 'width=580,height=400');
+}
+
+function copyLinkToClipboard() {
+    const result = window._currentResult;
+    if (!result) return;
+    
+    const shareUrl = `${window.location.origin}${window.location.pathname}?ref=${generateShareId()}`;
+    const text = `🔥 Soy ${result.archetype} ${result.emoji} en Dilemas Virales\n\nSolo el ${result.rareza}% obtiene este resultado\n\n¿Y tú? 👉 ${shareUrl}`;
+    
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+            showToast('¡Link copiado! 🔥 Ahora compártelo');
+            
+            // Track analytics
+            gtag('event', 'share', {
+                'method': 'copy_link',
+                'archetype': result.archetype,
+                'rarity': result.rareza
+            });
+        }).catch(() => {
+            fallbackCopyTextToClipboard(text);
+        });
+    } else {
+        fallbackCopyTextToClipboard(text);
+    }
+}
+
+function generateShareId() {
+    return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+}
+
+function fallbackCopyTextToClipboard(text) {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    textArea.style.top = '-999999px';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    
+    try {
+        document.execCommand('copy');
+        showToast('¡Link copiado! 🔥 Ahora compártelo');
+        
+        // Track analytics
+        const result = window._currentResult;
+        if (result) {
+            gtag('event', 'share', {
+                'method': 'copy_link_fallback',
+                'archetype': result.archetype,
+                'rarity': result.rareza
+            });
+        }
+    } catch (err) {
+        showToast('Error al copiar el link');
+    }
+    
+    document.body.removeChild(textArea);
 }
 
 function downloadResultImage() {
@@ -993,6 +1467,34 @@ function nextDilemma() {
 function updateUI() {
     if (elements.decisionCount) elements.decisionCount.textContent = totalDecisions;
     if (elements.streak) elements.streak.textContent = streak;
+    
+    // Actualizar información de nivel
+    const levelInfo = gameLevels[gameStats.level];
+    if (elements.levelDisplay) {
+        elements.levelDisplay.textContent = `Nivel ${gameStats.level}`;
+        elements.levelDisplay.style.color = levelInfo.color;
+    }
+    if (elements.levelName) {
+        elements.levelName.textContent = `${levelInfo.icon} ${levelInfo.name}`;
+    }
+    if (elements.levelProgress) {
+        const nextLevel = gameStats.level < 10 ? gameStats.level + 1 : 10;
+        const currentLevelMin = gameLevels[gameStats.level].minDecisions;
+        const nextLevelMin = gameLevels[nextLevel].minDecisions;
+        const progress = ((totalDecisions - currentLevelMin) / (nextLevelMin - currentLevelMin)) * 100;
+        elements.levelProgress.style.width = Math.min(progress, 100) + '%';
+    }
+    
+    // Actualizar elementos adicionales en pantalla de inicio
+    const totalDecisionsDisplay = document.getElementById('totalDecisionsDisplay');
+    const achievementsCount = document.getElementById('achievementsCount');
+    
+    if (totalDecisionsDisplay) {
+        totalDecisionsDisplay.textContent = totalDecisions;
+    }
+    if (achievementsCount) {
+        achievementsCount.textContent = gameStats.achievementsUnlocked;
+    }
 }
 
 function checkMilestone() {
@@ -1013,6 +1515,238 @@ function updatePsychologicalProfile(dilemmaId, choice) {
             psychologicalProfile[trait] += selected[trait];
         }
     });
+}
+
+// ============================================
+// FUNCIONES DE NIVELES Y LOGROS
+// ============================================
+function updateLevel() {
+    const newLevel = getCurrentLevel();
+    if (newLevel > gameStats.level) {
+        gameStats.level = newLevel;
+        showLevelUp(newLevel);
+        saveGameStats();
+    }
+}
+
+function getCurrentLevel() {
+    for (let level = 10; level >= 1; level--) {
+        if (totalDecisions >= gameLevels[level].minDecisions) {
+            return level;
+        }
+    }
+    return 1;
+}
+
+function showLevelUp(newLevel) {
+    const levelInfo = gameLevels[newLevel];
+    const notification = document.createElement('div');
+    notification.className = 'level-up-notification';
+    notification.innerHTML = `
+        <div class="level-up-content">
+            <div class="level-icon">${levelInfo.icon}</div>
+            <div class="level-text">
+                <div class="level-title">¡SUBISTE DE NIVEL!</div>
+                <div class="level-name">${levelInfo.name}</div>
+                <div class="level-progress">Nivel ${newLevel}</div>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 100);
+    
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 500);
+    }, 3000);
+}
+
+function checkAchievements() {
+    // Primer paso
+    if (totalDecisions === 1 && !achievements.firstChoice.unlocked) {
+        unlockAchievement('firstChoice');
+    }
+    
+    // Rachas
+    if (streak >= 5 && !achievements.streak5.unlocked) {
+        unlockAchievement('streak5');
+    }
+    if (streak >= 10 && !achievements.streak10.unlocked) {
+        unlockAchievement('streak10');
+    }
+    
+    // Todos los dilemas
+    if (usedDilemmas.length >= dilemmas.length && !achievements.allDilemmas.unlocked) {
+        unlockAchievement('allDilemmas');
+    }
+    
+    // Demonio de velocidad
+    if (gameStats.speedDecisions >= 10 && !achievements.speedDemon.unlocked) {
+        unlockAchievement('speedDemon');
+    }
+    
+    // Hora del día
+    const hour = new Date().getHours();
+    if ((hour >= 0 && hour < 6) && !achievements.earlyBird.unlocked) {
+        unlockAchievement('earlyBird');
+    }
+    if ((hour >= 22 || hour < 4) && !achievements.nightOwl.unlocked) {
+        unlockAchievement('nightOwl');
+    }
+    
+    // Compartir viral
+    if (gameStats.shareCount >= 5 && !achievements.viral.unlocked) {
+        unlockAchievement('viral');
+    }
+}
+
+function unlockAchievement(achievementId) {
+    const achievement = achievements[achievementId];
+    if (!achievement || achievement.unlocked) return;
+    
+    achievement.unlocked = true;
+    gameStats.achievementsUnlocked++;
+    saveGameStats();
+    
+    showAchievementNotification(achievement);
+}
+
+function showAchievementNotification(achievement) {
+    const notification = document.createElement('div');
+    notification.className = 'achievement-notification';
+    notification.innerHTML = `
+        <div class="achievement-content">
+            <div class="achievement-icon">${achievement.icon}</div>
+            <div class="achievement-text">
+                <div class="achievement-title">¡LOGRO DESBLOQUEADO!</div>
+                <div class="achievement-name">${achievement.name}</div>
+                <div class="achievement-desc">${achievement.description}</div>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 100);
+    
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 500);
+    }, 4000);
+}
+
+function updateGameStats(decisionTime) {
+    gameStats.totalPlayTime += decisionTime;
+    gameStats.lastPlayTime = Date.now();
+    
+    if (decisionTime < gameStats.fastestDecision) {
+        gameStats.fastestDecision = decisionTime;
+    }
+    if (decisionTime > gameStats.slowestDecision) {
+        gameStats.slowestDecision = decisionTime;
+    }
+    
+    if (decisionTime < 2000) { // Menos de 2 segundos
+        gameStats.speedDecisions++;
+    }
+    
+    saveGameStats();
+}
+
+function saveGameStats() {
+    try {
+        localStorage.setItem('dilemasViralesStats', JSON.stringify(gameStats));
+        localStorage.setItem('dilemasViralesAchievements', JSON.stringify(achievements));
+    } catch (error) {
+        console.error('Error guardando estadísticas:', error);
+    }
+}
+
+function loadGameStats() {
+    try {
+        const savedStats = localStorage.getItem('dilemasViralesStats');
+        const savedAchievements = localStorage.getItem('dilemasViralesAchievements');
+        
+        if (savedStats) {
+            gameStats = { ...gameStats, ...JSON.parse(savedStats) };
+        }
+        if (savedAchievements) {
+            Object.keys(achievements).forEach(key => {
+                if (JSON.parse(savedAchievements)[key]) {
+                    achievements[key] = JSON.parse(savedAchievements)[key];
+                }
+            });
+        }
+    } catch (error) {
+        console.error('Error cargando estadísticas:', error);
+    }
+}
+
+// ============================================
+// COMPARTIR CON URL
+// ============================================
+function checkUrlForResult() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const resultType = urlParams.get('r');
+    
+    if (resultType) {
+        // Mostrar pantalla de resultado compartido
+        setTimeout(() => {
+            showSharedResult(resultType);
+        }, 1000);
+    }
+}
+
+function showSharedResult(resultType) {
+    hideAllScreens();
+    
+    // Crear pantalla de resultado compartido
+    const sharedScreen = document.createElement('div');
+    sharedScreen.className = 'shared-result-screen';
+    sharedScreen.innerHTML = `
+        <div class="shared-badge">🔥 RESULTADO COMPARTIDO</div>
+        <h2>Alguien obtuvo este resultado:</h2>
+        <div class="shared-archetype">${getArchetypeDisplay(resultType)}</div>
+        <button class="btn-primary" onclick="location.href='?'">
+            <span class="btn-inner">JUGAR AHORA →</span>
+        </button>
+    `;
+    
+    document.getElementById('gameArea').appendChild(sharedScreen);
+}
+
+function getArchetypeDisplay(type) {
+    const archetype = arquetipos[type];
+    if (!archetype) return 'Resultado no encontrado';
+    
+    return `
+        <div class="archetype-display">
+            <div class="archetype-emoji">${archetype.emoji}</div>
+            <div class="archetype-title">${archetype.titulo}</div>
+            <div class="archetype-subtitle">${archetype.subtitulo}</div>
+            <div class="archetype-rarity">Solo el ${archetype.rareza}% lo obtiene</div>
+        </div>
+    `;
+}
+
+function generateShareUrl(resultType) {
+    const baseUrl = window.location.origin + window.location.pathname;
+    return `${baseUrl}?r=${resultType}`;
+}
+
+function updateShareUrl() {
+    if (window._currentResult && window._currentResult.dominant) {
+        const shareUrl = generateShareUrl(window._currentResult.dominant);
+        window.history.replaceState({}, '', shareUrl);
+    }
 }
 
 // ============================================

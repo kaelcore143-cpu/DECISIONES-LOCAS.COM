@@ -5,6 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dilemas Virales | El juego de decisiones imposibles</title>
     <meta name="description" content="Juega Dilemas Virales: el juego adictivo de decisiones imposibles. Elige entre opciones absurdas y descubre qué piensa la gente.">
+    
+    <!-- Open Graph para Facebook/LinkedIn -->
+    <meta property="og:title" content="🔥 Dilemas Virales | ¿Eres EL CAÓTICO? Descúbrelo">
+    <meta property="og:description" content="Solo el 12% obtiene este resultado. Juega 5 dilemas y descubre tu arquetipo psicológico.">
+    <meta property="og:image" content="https://dilemasvirales.com/og-image.jpg">
+    <meta property="og:url" content="https://dilemasvirales.com">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Dilemas Virales">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="🔥 Dilemas Virales | ¿Eres EL CAÓTICO?">
+    <meta name="twitter:description" content="Solo el 12% obtiene este resultado. ¿Y tú?">
+    <meta name="twitter:image" content="https://dilemasvirales.com/twitter-image.jpg">
+    <meta name="twitter:site" content="@dilemasvirales">
+    
+    <!-- Meta tags adicionales para SEO -->
+    <meta name="keywords" content="dilemas, juego, test psicológico, viral, decisiones, entretenimiento, test personalidad, dilemas imposibles">
+    <meta name="author" content="Dilemas Virales">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dilemasvirales.com">
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    
+    <!-- Structured Data para SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Game",
+      "name": "Dilemas Virales",
+      "description": "Juego de decisiones imposibles con análisis psicológico viral",
+      "url": "https://dilemasvirales.com",
+      "image": "https://dilemasvirales.com/og-image.jpg",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "15000"
+      },
+      "genre": ["Entertainment", "Psychology", "Quiz"],
+      "gamePlatform": "Web Browser"
+    }
+    </script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
@@ -41,10 +91,25 @@
                 <div class="start-tags">
                     <span>#caos</span><span>#psicología</span><span>#viral</span>
                 </div>
+                
+                <!-- Información de nivel y progreso -->
+                <div class="level-info" id="levelInfo">
+                    <div class="level-header">
+                        <span class="level-display" id="levelDisplay">Nivel 1</span>
+                        <span class="level-name" id="levelName">🌱 Novato</span>
+                    </div>
+                    <div class="level-progress-bar">
+                        <div class="level-progress" id="levelProgress"></div>
+                    </div>
+                    <div class="level-stats" id="levelStats">
+                        <span>Decisiones: <span id="totalDecisionsDisplay">0</span></span>
+                        <span>Logros: <span id="achievementsCount">0</span>/10</span>
+                    </div>
+                </div>
+                
                 <button class="btn-primary" id="startBtn">
-                    <span class="btn-inner">DESCUBRE QUIÉN ERES →</span>
+                    <span class="btn-inner">EMPEZAR JUEGO →</span>
                 </button>
-                <p class="start-warning">⏱ 5 segundos por decisión. Sin escape.</p>
             </div>
 
             <!-- Pantalla de dilema -->
@@ -168,8 +233,17 @@
                 </div>
 
                 <div class="psych-actions">
-                    <button class="btn-compare" id="compareBtn">� COMPARAR CON TUS AMIGOS</button>
+                    <button class="btn-compare" id="compareBtn">🔄 COMPARAR CON TUS AMIGOS</button>
                     <button class="btn-download hidden" id="downloadBtn">⬇️ DESCARGAR IMAGEN</button>
+                    
+                    <!-- Botones de compartir específicos por plataforma -->
+                    <div class="share-buttons-container">
+                        <button class="btn-share-twitter" id="shareTwitterBtn">🐦 COMPARTIR EN TWITTER</button>
+                        <button class="btn-share-whatsapp" id="shareWhatsAppBtn">💚 COMPARTIR EN WHATSAPP</button>
+                        <button class="btn-share-facebook" id="shareFacebookBtn">📘 COMPARTIR EN FACEBOOK</button>
+                        <button class="btn-share-copy" id="shareCopyBtn">📋 COPIAR LINK</button>
+                    </div>
+                    
                     <button class="btn-continue-small" id="continueBtn">Seguir jugando →</button>
                 </div>
             </div>

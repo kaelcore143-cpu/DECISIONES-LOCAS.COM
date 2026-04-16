@@ -201,7 +201,7 @@ canvas#particleCanvas {
     flex-direction: column;
     justify-content: center;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 /* Línea de acento superior */
@@ -411,7 +411,7 @@ canvas#particleCanvas {
 .options-container {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 0.5rem;
     animation: optionsReveal 0.5s ease-out;
 }
 
@@ -1000,26 +1000,174 @@ canvas#particleCanvas {
     /* 🔥 Resultado psicológico ajustado */
     .psych-result-screen {
         padding: 0.5rem 0;
-        justify-content: center;
+        justify-content: flex-start;
+        max-height: 100vh;
+        overflow-y: auto;
     }
     
-    .psych-archetype { font-size: 1.6rem; }
-    .psych-archetype-sub { font-size: 2rem; }
-    .psych-emoji { font-size: 2.2rem; }
+    .psych-badge-exclusive {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .psych-archetype { 
+        font-size: 1.4rem; 
+        line-height: 1.1;
+        margin-bottom: 0.3rem;
+    }
+    
+    .psych-archetype-sub { 
+        font-size: 1.8rem; 
+        line-height: 1.1;
+    }
+    
+    .psych-emoji { 
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
     
     .psych-title-wrap {
         flex-direction: column;
         gap: 0.5rem;
-        margin-bottom: 1rem;
+        margin-bottom: 0.8rem;
+        padding: 0 0.5rem;
     }
     
     .psych-archetype-block {
         text-align: center;
+        width: 100%;
     }
     
     .psych-bars-container {
         width: 100%;
         padding: 0 0.5rem;
+        margin-bottom: 1rem;
+        gap: 0.5rem;
+    }
+    
+    .psych-bar-row {
+        grid-template-columns: 50px 1fr 40px;
+        gap: 0.5rem;
+    }
+    
+    .psych-bar-label {
+        font-size: 0.65rem;
+    }
+    
+    .psych-bar-pct {
+        font-size: 0.65rem;
+    }
+    
+    .psych-description {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        padding: 0 0.5rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .psych-traits {
+        font-size: 0.8rem;
+        padding: 0 0.5rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .psych-cta {
+        margin-bottom: 1rem;
+        padding: 0 0.5rem;
+    }
+    
+    .cta-text {
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .psych-site {
+        font-size: 0.8rem;
+    }
+    
+    .psych-actions {
+        padding: 0 0.5rem;
+        gap: 0.8rem;
+    }
+    
+    .btn-compare {
+        font-size: 0.9rem;
+        padding: 0.9rem;
+        min-height: 50px;
+    }
+    
+    .btn-download {
+        font-size: 0.9rem;
+        padding: 0.9rem;
+        min-height: 50px;
+    }
+    
+    .btn-continue-small {
+        font-size: 0.9rem;
+        padding: 0.9rem;
+        min-height: 50px;
+    }
+}
+
+/* ---- RESPONSIVE TABLETS ---- */
+@media (max-width: 768px) and (min-width: 481px) {
+    .psych-result-screen {
+        padding: 1rem 0;
+        justify-content: flex-start;
+    }
+    
+    .psych-archetype { 
+        font-size: 1.8rem; 
+        line-height: 1.1;
+    }
+    
+    .psych-archetype-sub { 
+        font-size: 2.4rem; 
+        line-height: 1.1;
+    }
+    
+    .psych-emoji { 
+        font-size: 2.5rem;
+    }
+    
+    .psych-title-wrap {
+        gap: 0.8rem;
+        margin-bottom: 1.2rem;
+        padding: 0 1rem;
+    }
+    
+    .psych-bars-container {
+        padding: 0 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .psych-description {
+        font-size: 1rem;
+        padding: 0 1rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .psych-traits {
+        font-size: 0.9rem;
+        padding: 0 1rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .psych-cta {
+        padding: 0 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .psych-actions {
+        padding: 0 1rem;
+        gap: 1rem;
+    }
+    
+    .share-buttons-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin: 1.5rem 0;
     }
 }
 
@@ -1032,6 +1180,38 @@ canvas#particleCanvas {
         min-height: 60px;
     }
     .start-title { font-size: 2rem; }
+    
+    /* Extra small screen adjustments */
+    .psych-archetype { font-size: 1.2rem; }
+    .psych-archetype-sub { font-size: 1.6rem; }
+    .psych-emoji { font-size: 1.8rem; }
+    
+    .psych-bar-row {
+        grid-template-columns: 45px 1fr 35px;
+        gap: 0.4rem;
+    }
+    
+    .psych-bar-label {
+        font-size: 0.6rem;
+    }
+    
+    .psych-bar-pct {
+        font-size: 0.6rem;
+    }
+    
+    .share-buttons-container {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    
+    .btn-share-twitter,
+    .btn-share-whatsapp,
+    .btn-share-facebook,
+    .btn-share-copy {
+        font-size: 0.8rem;
+        padding: 0.6rem 0.7rem;
+        min-height: 44px;
+    }
 }
 
 /* ---- OPTIMIZACIONES ---- */
@@ -1249,4 +1429,285 @@ canvas#particleCanvas {
 
 .btn-continue-small:hover {
     color: var(--text);
+}
+
+/* ============================================
+   SISTEMA DE NIVELES Y LOGROS
+   ============================================ */
+.level-info {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 106, 0, 0.3);
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem 0;
+    backdrop-filter: blur(10px);
+}
+
+.level-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.level-display {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #95a5a6;
+    text-shadow: 0 0 10px currentColor;
+}
+
+.level-name {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.level-progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.level-progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--red) 0%, var(--red2) 100%);
+    width: 0%;
+    transition: width 0.5s ease;
+    border-radius: 3px;
+}
+
+.level-stats {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+/* Notificaciones de nivel y logros */
+.level-up-notification,
+.achievement-notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: rgba(0, 0, 0, 0.95);
+    border: 2px solid var(--red);
+    border-radius: 15px;
+    padding: 2rem;
+    z-index: 10000;
+    opacity: 0;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 50px rgba(255, 106, 0, 0.5);
+}
+
+.level-up-notification.show,
+.achievement-notification.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.level-up-content,
+.achievement-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: left;
+}
+
+.level-icon,
+.achievement-icon {
+    font-size: 3rem;
+    animation: bounce 1s infinite;
+}
+
+.level-text,
+.achievement-text {
+    flex: 1;
+}
+
+.level-title,
+.achievement-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--red);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.level-name,
+.achievement-name {
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+}
+
+.level-progress,
+.achievement-desc {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Pantalla de resultado compartido */
+.shared-result-screen {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 15px;
+    border: 1px solid var(--red);
+    backdrop-filter: blur(20px);
+}
+
+.shared-badge {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 900;
+    color: var(--red);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.shared-archetype {
+    margin: 2rem 0;
+}
+
+.archetype-display {
+    background: rgba(255, 106, 0, 0.1);
+    border: 1px solid var(--red);
+    border-radius: 10px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+}
+
+.archetype-emoji {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.archetype-title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--red);
+    margin-bottom: 0.5rem;
+}
+
+.archetype-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+.archetype-rarity {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--yellow);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ---- BOTONES DE COMPARTIR ESPECÍFICOS ---- */
+.share-buttons-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    margin: 1.5rem 0;
+    width: 100%;
+}
+
+.btn-share-twitter,
+.btn-share-whatsapp,
+.btn-share-facebook,
+.btn-share-copy {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-share-twitter:hover {
+    background: rgba(29, 161, 242, 0.2);
+    border-color: #1DA1F2;
+    color: #1DA1F2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(29, 161, 242, 0.3);
+}
+
+.btn-share-whatsapp:hover {
+    background: rgba(37, 211, 102, 0.2);
+    border-color: #25D366;
+    color: #25D366;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-share-facebook:hover {
+    background: rgba(24, 119, 242, 0.2);
+    border-color: #1877F2;
+    color: #1877F2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(24, 119, 242, 0.3);
+}
+
+.btn-share-copy:hover {
+    background: rgba(255, 106, 0, 0.2);
+    border-color: var(--red);
+    color: var(--red);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 106, 0, 0.3);
+}
+
+.btn-share-twitter:active,
+.btn-share-whatsapp:active,
+.btn-share-facebook:active,
+.btn-share-copy:active {
+    transform: translateY(0);
+}
+
+/* Responsive para móviles */
+@media (max-width: 480px) {
+    .share-buttons-container {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+    }
+    
+    .btn-share-twitter,
+    .btn-share-whatsapp,
+    .btn-share-facebook,
+    .btn-share-copy {
+        font-size: 0.85rem;
+        padding: 0.7rem 0.8rem;
+    }
 }
