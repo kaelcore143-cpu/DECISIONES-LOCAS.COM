@@ -1237,164 +1237,219 @@ function generateResultImage() {
     ctx.fillText(`?r=${window._currentResult.dominant}`, w/2, h - 25);
 }
 
-function shareResult() {
+// ============================================
+// TEXTOS VIRALES POR ARQUETIPO
+// ============================================
+const shareTexts = {
+    caotico_inteligente: {
+        hook: "Salí EL CAÓTICO INTELIGENTE 😈",
+        desafio: "¿Tú también rompes las reglas... pero con cabeza?",
+        secreto: "Este resultado dice que planifico el caos. No todos lo entienden."
+    },
+    estratega_frio: {
+        hook: "Me dieron EL ESTRATEGA FRÍO 🧠",
+        desafio: "Solo el 8% decide así. ¿Tú eres del 8%?",
+        secreto: "Parece que decido sin emociones. El test tiene razón y me asusta."
+    },
+    dominante: {
+        hook: "Salí EL DOMINANTE 👑",
+        desafio: "El test dice que controlo los juegos, no que los sigo.",
+        secreto: "No sé si sentirme orgulloso o preocupado con este resultado."
+    },
+    caos_puro: {
+        hook: "Salí EL CAOS PURO 🧨",
+        desafio: "Primero actúo, después pienso. Y al parecer siempre.",
+        secreto: "El 9% sale así. Yo soy uno de esos. No me arrepiento."
+    },
+    emocional_intenso: {
+        hook: "Salí EL EMOCIONAL INTENSO 🫀",
+        desafio: "Todo o nada. El test me conoce mejor que yo.",
+        secreto: "No esperaba este resultado. Pero es 100% yo."
+    },
+    doble_cara: {
+        hook: "Me dieron EL DOBLE CARA 🎭",
+        desafio: "¿Tú también te adaptas demasiado bien?",
+        secreto: "El test dice que sé leer a la gente. Eso explica muchas cosas."
+    },
+    analista: {
+        hook: "Salí EL ANALISTA 🧩",
+        desafio: "Pienso demasiado. Pero casi nunca me equivoco.",
+        secreto: "Me cuesta decidir rápido y este test lo captó perfectamente."
+    },
+    rapido: {
+        hook: "Salí EL RÁPIDO ⚡",
+        desafio: "Reacciono antes de pensar. Y muchas veces gano.",
+        secreto: "El test dice que el caos es mi zona de confort. Tiene razón."
+    },
+    neutral_peligroso: {
+        hook: "Salí EL NEUTRAL PELIGROSO 😶‍🌫️",
+        desafio: "Solo el 7% obtiene este resultado. El más raro de todos.",
+        secreto: "Parece tranquilo... pero no lo soy. El test me descifró."
+    },
+    impredecible: {
+        hook: "Salí EL IMPREVISIBLE 🔥",
+        desafio: "Ni yo sé qué haré... y al parecer esa es mi ventaja.",
+        secreto: "El test dice que dejo un rastro de caos memorable. Correcto."
+    },
+    mixto: {
+        hook: "Salí EL IMPOSIBLE ÚNICO 🌀",
+        desafio: "Ni los algoritmos me tienen claro. Solo el 3% llega aquí.",
+        secreto: "Obtuve el resultado más raro del juego. No sé cómo sentirme."
+    }
+};
+
+function getShareTexts(dominant) {
+    return shareTexts[dominant] || shareTexts.mixto;
+}
+
+function getShareUrl(ref) {
+    const base = window.location.origin + window.location.pathname;
+    const r = window._currentResult?.dominant || '';
+    return `${base}?r=${r}&ref=${ref || generateShareId()}`;
+}
+
+function trackShare(method) {
     const result = window._currentResult;
     if (!result) return;
-    
-    // Actualizar contador de compartidos
+    try {
+        gtag('event', 'share', {
+            'method': method,
+            'archetype': result.archetype,
+            'rarity': result.rareza
+        });
+    } catch(e) {}
     gameStats.shareCount++;
     saveGameStats();
     checkAchievements();
-    
-    const levelInfo = gameLevels[gameStats.level];
-    const text = `🔥 DILEMAS VIRALES\n\n` +
-        `¡Soy ${result.archetype} ${result.emoji}!\n` +
-        `Solo el ${result.rareza}% obtiene este resultado.\n` +
-        `Nivel ${gameStats.level} ${levelInfo.icon} ${levelInfo.name}\n\n` +
-        `🔴 Caos: ${result.pcts.caos}% | 🟣 Ego: ${result.pcts.ego}%\n` +
-        `🔵 Lógica: ${result.pcts.logica}% | 🟢 Emoción: ${result.pcts.emocional}%\n\n` +
-        `¿Y tú? 👉 ${window.location.origin}${window.location.pathname}`;
-    
-    // Intentar compartir imagen si existe
+}
+
+function shareResult() {
+    const result = window._currentResult;
+    if (!result) return;
+    const texts = getShareTexts(result.dominant);
+    const url = getShareUrl();
+    const shareText = `${texts.hook}\n\nSolo el ${result.rareza}% obtiene este resultado.\n\n${texts.desafio}\n\n👉 ${url}`;
+
     const canvas = elements.shareCanvas;
     if (canvas && navigator.share && navigator.canShare) {
         canvas.toBlob(blob => {
             if (blob) {
                 const file = new File([blob], 'mi-resultado-dilemas-virales.png', { type: 'image/png' });
-                const shareData = { 
-                    title: 'Soy ' + result.archetype, 
-                    text: text,
-                    files: [file]
-                };
+                const shareData = { title: texts.hook, text: shareText, files: [file] };
                 if (navigator.canShare(shareData)) {
-                    navigator.share(shareData).catch(() => copyToClipboard(text));
+                    navigator.share(shareData).catch(() => _clipboardFallback(shareText));
+                    trackShare('native_image');
                     return;
                 }
             }
-            copyToClipboard(text);
+            navigator.share({ title: texts.hook, text: shareText, url }).catch(() => _clipboardFallback(shareText));
+            trackShare('native');
         });
     } else {
-        copyToClipboard(text);
+        _clipboardFallback(shareText);
     }
 }
 
 function compareWithFriends() {
-    // Primero mostrar botón de descarga, luego permitir continuar
-    if (elements.downloadBtn) {
-        elements.downloadBtn.classList.remove('hidden');
-    }
+    if (elements.downloadBtn) elements.downloadBtn.classList.remove('hidden');
     shareResult();
 }
 
-// ---- FUNCIONES DE COMPARTIR ESPECÍFICAS POR PLATAFORMA ----
+// ---- COMPARTIR POR PLATAFORMA ----
 function shareOnTwitter() {
     const result = window._currentResult;
     if (!result) return;
-    
-    const text = `🔥 Soy ${result.archetype} ${result.emoji} en Dilemas Virales\n\nSolo el ${result.rareza}% obtiene este resultado\n\n¿Y tú? ¿Te atreves a jugar? 👇\n\n${window.location.origin}${window.location.pathname}?ref=${generateShareId()}`;
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
-    
-    // Track analytics
-    gtag('event', 'share', {
-        'method': 'twitter',
-        'archetype': result.archetype,
-        'rarity': result.rareza
-    });
-    
-    window.open(twitterUrl, '_blank', 'width=550,height=420');
+    const texts = getShareTexts(result.dominant);
+    const url = getShareUrl('tw');
+
+    // Twitter: corto, hook fuerte, rareza como presión social
+    const tweet =
+        `${texts.hook}\n` +
+        `Solo el ${result.rareza}% obtiene este resultado 👀\n\n` +
+        `${texts.desafio}\n\n` +
+        `🔴 Caos ${result.pcts.caos}% · 🟣 Ego ${result.pcts.ego}% · 🔵 Lógica ${result.pcts.logica}%\n\n` +
+        `¿Y tú qué saldrías? 👇\n${url}`;
+
+    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(tweet)}`, '_blank', 'width=550,height=420');
+    trackShare('twitter');
 }
 
 function shareOnWhatsApp() {
     const result = window._currentResult;
     if (!result) return;
-    
-    const text = `🔥 *Soy ${result.archetype} ${result.emoji}* en Dilemas Virales\n\nSolo el ${result.rareza}% obtiene este resultado\n\n¿Y tú? ¿Te atreves a descubrir tu arquetipo?\n\n${window.location.origin}${window.location.pathname}?ref=${generateShareId()}`;
-    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(text)}`;
-    
-    // Track analytics
-    gtag('event', 'share', {
-        'method': 'whatsapp',
-        'archetype': result.archetype,
-        'rarity': result.rareza
-    });
-    
-    window.open(whatsappUrl, '_blank');
+    const texts = getShareTexts(result.dominant);
+    const url = getShareUrl('wa');
+
+    // WhatsApp: markdown bold, emojis, pregunta directa al grupo
+    const msg =
+        `*${texts.hook}*\n\n` +
+        `El test dice: _${texts.secreto}_\n\n` +
+        `Solo el *${result.rareza}%* de personas obtiene este resultado.\n\n` +
+        `🔴 Caos: *${result.pcts.caos}%*\n` +
+        `🟣 Ego: *${result.pcts.ego}%*\n` +
+        `🔵 Lógica: *${result.pcts.logica}%*\n` +
+        `🟢 Emoción: *${result.pcts.emocional}%*\n\n` +
+        `¿Ustedes qué sacarían? 👇\n${url}`;
+
+    window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+    trackShare('whatsapp');
 }
 
 function shareOnFacebook() {
     const result = window._currentResult;
     if (!result) return;
-    
-    const shareUrl = `${window.location.origin}${window.location.pathname}?ref=${generateShareId()}`;
-    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}&quote=${encodeURIComponent(`Soy ${result.archetype} en Dilemas Virales - Solo el ${result.rareza}% obtiene este resultado`)}`;
-    
-    // Track analytics
-    gtag('event', 'share', {
-        'method': 'facebook',
-        'archetype': result.archetype,
-        'rarity': result.rareza
-    });
-    
-    window.open(facebookUrl, '_blank', 'width=580,height=400');
+    const url = getShareUrl('fb');
+    const texts = getShareTexts(result.dominant);
+    const quote = `${texts.hook} — Solo el ${result.rareza}% obtiene este resultado. ${texts.desafio}`;
+
+    window.open(
+        `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(quote)}`,
+        '_blank', 'width=580,height=400'
+    );
+    trackShare('facebook');
 }
 
 function copyLinkToClipboard() {
     const result = window._currentResult;
     if (!result) return;
-    
-    const shareUrl = `${window.location.origin}${window.location.pathname}?ref=${generateShareId()}`;
-    const text = `🔥 Soy ${result.archetype} ${result.emoji} en Dilemas Virales\n\nSolo el ${result.rareza}% obtiene este resultado\n\n¿Y tú? 👉 ${shareUrl}`;
-    
+    const texts = getShareTexts(result.dominant);
+    const url = getShareUrl('copy');
+
+    // Texto completo para pegar en cualquier lado
+    const text =
+        `${texts.hook}\n\n` +
+        `"${texts.secreto}"\n\n` +
+        `Solo el ${result.rareza}% obtiene este resultado.\n` +
+        `🔴 Caos ${result.pcts.caos}% · 🟣 Ego ${result.pcts.ego}% · 🔵 Lógica ${result.pcts.logica}% · 🟢 Emoción ${result.pcts.emocional}%\n\n` +
+        `¿Y tú? 👉 ${url}`;
+
     if (navigator.clipboard) {
-        navigator.clipboard.writeText(text).then(() => {
-            showToast('¡Link copiado! 🔥 Ahora compártelo');
-            
-            // Track analytics
-            gtag('event', 'share', {
-                'method': 'copy_link',
-                'archetype': result.archetype,
-                'rarity': result.rareza
-            });
-        }).catch(() => {
-            fallbackCopyTextToClipboard(text);
-        });
+        navigator.clipboard.writeText(text)
+            .then(() => { showToast('¡Copiado! 🔥 Ahora pégalo donde quieras'); trackShare('copy_link'); })
+            .catch(() => _clipboardFallback(text));
     } else {
-        fallbackCopyTextToClipboard(text);
+        _clipboardFallback(text);
     }
 }
 
 function generateShareId() {
-    return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    return Math.random().toString(36).substring(2, 10);
 }
 
-function fallbackCopyTextToClipboard(text) {
-    const textArea = document.createElement('textarea');
-    textArea.value = text;
-    textArea.style.position = 'fixed';
-    textArea.style.left = '-999999px';
-    textArea.style.top = '-999999px';
-    document.body.appendChild(textArea);
-    textArea.focus();
-    textArea.select();
-    
+function _clipboardFallback(text) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.cssText = 'position:fixed;left:-9999px;top:-9999px;';
+    document.body.appendChild(ta);
+    ta.focus(); ta.select();
     try {
         document.execCommand('copy');
-        showToast('¡Link copiado! 🔥 Ahora compártelo');
-        
-        // Track analytics
-        const result = window._currentResult;
-        if (result) {
-            gtag('event', 'share', {
-                'method': 'copy_link_fallback',
-                'archetype': result.archetype,
-                'rarity': result.rareza
-            });
-        }
-    } catch (err) {
-        showToast('Error al copiar el link');
+        showToast('¡Copiado! 🔥 Ahora pégalo donde quieras');
+        trackShare('copy_fallback');
+    } catch(e) {
+        showToast('Copia el link manualmente');
     }
-    
-    document.body.removeChild(textArea);
+    document.body.removeChild(ta);
 }
 
 function downloadResultImage() {
@@ -1435,8 +1490,9 @@ function copyToClipboard(text) {
     });
 }
 
-function showToast() {
+function showToast(msg) {
     const toast = elements.toast;
+    if (msg) toast.textContent = msg;
     toast.classList.add('show');
     setTimeout(() => toast.classList.remove('show'), 3000);
 }
@@ -1707,20 +1763,32 @@ function checkUrlForResult() {
 
 function showSharedResult(resultType) {
     hideAllScreens();
-    
-    // Crear pantalla de resultado compartido
+    const archetype = arquetipos[resultType];
+    if (!archetype) { screens.start.classList.remove('hidden'); return; }
+
     const sharedScreen = document.createElement('div');
     sharedScreen.className = 'shared-result-screen';
     sharedScreen.innerHTML = `
-        <div class="shared-badge">🔥 RESULTADO COMPARTIDO</div>
-        <h2>Alguien obtuvo este resultado:</h2>
-        <div class="shared-archetype">${getArchetypeDisplay(resultType)}</div>
-        <button class="btn-primary" onclick="location.href='?'">
-            <span class="btn-inner">JUGAR AHORA →</span>
+        <div class="shared-badge">🔥 ALGUIEN TE RETÓ</div>
+        <p class="shared-intro">Obtuvieron este resultado — ¿tú qué sacarías?</p>
+        <div class="shared-archetype-card">
+            <div class="shared-emoji">${archetype.emoji}</div>
+            <div class="shared-titulo">${archetype.titulo}</div>
+            <div class="shared-sub">${archetype.subtitulo}</div>
+            <div class="shared-rarity">Solo el <strong>${archetype.rareza}%</strong> obtiene este resultado</div>
+        </div>
+        <p class="shared-challenge">¿También eres <strong>${archetype.titulo}</strong>… o completamente diferente?</p>
+        <button class="btn-primary shared-cta-btn" id="sharedCtaBtn">
+            <span class="btn-inner">DESCUBRIR MI RESULTADO →</span>
         </button>
+        <p class="shared-footnote">5 dilemas · 30 segundos · resultado inmediato</p>
     `;
     
     document.getElementById('gameArea').appendChild(sharedScreen);
+    document.getElementById('sharedCtaBtn').addEventListener('click', () => {
+        sharedScreen.remove();
+        screens.start.classList.remove('hidden');
+    });
 }
 
 function getArchetypeDisplay(type) {

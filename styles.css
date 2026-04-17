@@ -1711,3 +1711,98 @@ canvas#particleCanvas {
         padding: 0.7rem 0.8rem;
     }
 }
+/* ---- PANTALLA DE RETO COMPARTIDO ---- */
+.shared-result-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    animation: fadeInUp 0.4s ease;
+}
+
+.shared-badge {
+    background: linear-gradient(90deg, var(--red), var(--yellow));
+    color: var(--bg);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+}
+
+.shared-intro {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.shared-archetype-card {
+    background: rgba(255, 106, 0, 0.06);
+    border: 1px solid rgba(255, 106, 0, 0.25);
+    border-radius: 14px;
+    padding: 1.25rem 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.shared-emoji {
+    font-size: 3rem;
+    line-height: 1;
+}
+
+.shared-titulo {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    color: var(--red);
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+.shared-sub {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--yellow);
+    letter-spacing: 3px;
+    line-height: 1;
+}
+
+.shared-rarity {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 0.25rem;
+}
+
+.shared-rarity strong {
+    color: var(--yellow);
+}
+
+.shared-challenge {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--text);
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.shared-challenge strong {
+    color: var(--red);
+}
+
+.shared-cta-btn {
+    width: 100%;
+}
+
+.shared-footnote {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 1px;
+}
